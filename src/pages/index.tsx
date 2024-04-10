@@ -1,9 +1,22 @@
 import Head from "next/head";
 import Link from "next/link";
+import { es } from "date-fns/locale";
 
 import { api } from "@/utils/api";
 import { addDays, format, isSameDay } from "date-fns";
 import { useMemo, useState } from "react";
+
+const Team = ({ goals, logo, name }: any) => (
+  <div className="flex items-center gap-2 font-semibold">
+    <p className="mr-4 text-lg">{goals}</p>
+    <div className="avatar">
+      <div className="w-8 rounded">
+        <img src={logo || ""} alt={name} />
+      </div>
+    </div>
+    <p className="text-lg">{name}</p>
+  </div>
+);
 
 export default function Home({
   initialDates = format(new Date(), "yyyy-MM-dd"),
@@ -90,15 +103,39 @@ export default function Home({
                     />
                     <h2 className="card-title flex-1 text-lg">{name}</h2>
                   </div>
+                  <div className="divider m-0" />
                   <ul className="flex flex-col gap-4">
-                    {matches?.map(({ id }) => <div key={id}>{id}</div>)}
+                    {matches?.map(
+                      ({ id, date, venue, homeTeam, awayTeam }, i) => (
+                        <>
+                          <li
+                            key={id}
+                            className="flex w-full flex-col gap-4 p-4"
+                          >
+                            <div className="flex w-full gap-2">
+                              <p className="text-gray-300">{venue} - </p>
+                              <p className="text-gray-300">
+                                {!viewToday &&
+                                  format(date, "eeee", { locale: es })}
+                                <b> {format(date, "HH:mm")}hs</b>
+                              </p>
+                            </div>
+                            <Team {...homeTeam} />
+                            <Team {...awayTeam} />
+                          </li>
+                          {i < matches.length - 1 && (
+                            <div className="divider m-0" />
+                          )}
+                        </>
+                      ),
+                    )}
                   </ul>
                 </div>
               ))}
             </ul>
           </>
         ) : (
-          <div className="flex-1 flex items-center">
+          <div className="flex flex-1 items-center">
             <p className="text-center text-gray-500">No hay partidos :(</p>
           </div>
         )}

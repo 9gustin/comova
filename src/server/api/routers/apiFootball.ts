@@ -2,44 +2,30 @@ import { z } from "zod";
 
 import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 import { ACTIVE_LEAGUES, DEFAULT_TIMEZONE, type League } from "@/config";
+import { env } from "@/env";
+import { LEAGUE_MATCHES_RESPONSE } from "@/mocks/apiResponse";
+import { type LeagueMatchsResponse } from "@/types/leagueMatches";
 
-type LeagueMatchsResponse = {
-  response: Array<{
-    fixture: {
-      id: number;
-      date: string;
-      venue: {
-        name: string;
-      };
-      status: {
-        elapsed: number;
-      };
-    };
-    league: {
-      id: number;
-      name: string;
-      logo: string;
-    };
-    teams: {
-      home: {
-        id: number;
-        name: string;
-        logo: string;
-        winner: boolean;
-      };
-      away: {
-        id: number;
-        name: string;
-        logo: string;
-        winner: boolean;
-      };
-    };
-    goals: {
-      home: number;
-      away: number;
-    };
-  }>;
-};
+const mapResponse = ({ fixture, goals, teams }: LeagueMatchsResponse['response'][0]) => ({
+  id: fixture.id,
+  date: fixture.date,
+  venue: fixture.venue.name,
+  status: fixture.status.elapsed,
+  homeTeam: {
+    id: teams.home.id,
+    name: teams.home.name,
+    logo: teams.home.logo,
+    goals: goals.home,
+    winner: teams.home.winner,
+  },
+  awayTeam: {
+    id: teams.away.id,
+    name: teams.away.name,
+    logo: teams.away.logo,
+    goals: goals.away,
+    winner: teams.away.winner,
+  },
+})
 
 const getLeagueMatches = async ({
   league,
@@ -50,16 +36,24 @@ const getLeagueMatches = async ({
   from: string;
   to: string;
 }) => {
+  if (env.MOCK_APIDATA) {
+    return {
+      ...league,
+      matches: LEAGUE_MATCHES_RESPONSE.response.map(mapResponse),
+    }
+  }
+
+
   const apiResponse = await fetch(
-    `https://v3.football.api-sports.io/fixtures?season=${league.currentSeason}&league=${league.id}&from=${from}&to=${to}&timezone=${DEFAULT_TIMEZONE}`,
-    {
-      method: "GET",
-      headers: {
-        "x-rapidapi-host": "v3.football.api-sports.io",
-        "x-rapidapi-key": process.env.APIFOOTBALL_KEY ?? "",
-      },
-    },
-  );
+        `https://v3.football.api-sports.io/fixtures?season=${league.currentSeason}&league=${league.id}&from=${from}&to=${to}&timezone=${DEFAULT_TIMEZONE}`,
+        {
+          method: "GET",
+          headers: {
+            "x-rapidapi-host": "v3.football.api-sports.io",
+            "x-rapidapi-key": env.APIFOOTBALL_KEY,
+          },
+        },
+      );
 
   if (!apiResponse.ok) {
     throw new Error("Failed to fetch data from API");
@@ -67,28 +61,11 @@ const getLeagueMatches = async ({
 
   const { response } = (await apiResponse.json()) as LeagueMatchsResponse;
 
+  console.log("response", JSON.stringify(response));
+
   return {
     ...league,
-    matches: response.map(({ fixture, goals, teams }) => ({
-      id: fixture.id,
-      date: fixture.date,
-      venue: fixture.venue.name,
-      status: fixture.status.elapsed,
-      homeTeam: {
-        id: teams.home.id,
-        name: teams.home.name,
-        logo: teams.home.logo,
-        goals: goals.home,
-        winner: teams.home.winner,
-      },
-      awayTeam: {
-        id: teams.away.id,
-        name: teams.away.name,
-        logo: teams.away.logo,
-        goals: goals.away,
-        winner: teams.away.winner,
-      },
-    })),
+    matches: response.map(mapResponse),
   };
 };
 
