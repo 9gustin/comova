@@ -32,7 +32,13 @@ export default function Home({
 
   const filteredLeagues = useMemo(() => {
     const leaguesWithMatches = leagues?.filter(
-      ({ matches }) => matches.length > 0,
+      ({ matches }) => {
+        if (viewToday) {
+          return matches?.some(({ date }) => isSameDay(date, new Date()));
+        }
+
+        return matches?.length;
+      },
     );
 
     if (!leaguesWithMatches?.length) {
@@ -65,7 +71,7 @@ export default function Home({
           name="description"
           content="Como va el partido que estas siguiendo"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/comova.png" />
       </Head>
       <div
         className="flex flex-1 flex-col items-center gap-6 bg-base-300 p-4"
@@ -73,12 +79,18 @@ export default function Home({
           minHeight: "100vh",
         }}
       >
-        <div className="flex flex-col items-center gap-2">
-          <h1 className="text-3xl font-bold">Como va?</h1>
-          <Link href="https://9gu.dev" className="text-gray-300 underline">
-            by @9gustin ;)
-          </Link>
-        </div>
+        <header className="flex items-center gap-4 w-full">
+          <img src="/comova.png" alt="Logo de la app" className="h-12" />
+          <div className="flex flex-col">
+            <h1 className="text-2xl font-bold">Como va?</h1>
+            <Link
+              href="https://9gu.dev"
+              className="m-0 p-0 text-sm text-gray-300 underline"
+            >
+              by @9gustin ;)
+            </Link>
+          </div>
+        </header>
         {filteredLeagues?.length ? (
           <>
             <ul className="menu menu-horizontal rounded-box bg-base-200">
