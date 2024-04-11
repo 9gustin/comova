@@ -39,7 +39,9 @@ const getLeagueMatches = async ({
   if (env.MOCK_APIDATA) {
     return {
       ...league,
-      matches: LEAGUE_MATCHES_RESPONSE.response.map(mapResponse),
+      matches: LEAGUE_MATCHES_RESPONSE.response.map(mapResponse).sort(
+        (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+      ),
     }
   }
 
@@ -65,7 +67,9 @@ const getLeagueMatches = async ({
 
   return {
     ...league,
-    matches: response.map(mapResponse),
+    matches: response.map(mapResponse).sort(
+      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+    ),
   };
 };
 
