@@ -37,7 +37,7 @@ const COPASUDAMERICANA = {
 
 const PREMIERLEAGUE = {
   id: 39,
-  currentSeason: 2024,
+  currentSeason: 2023,
   name: "Premier League",
   logo: "https://media.api-sports.io/football/leagues/39.png",
 };
