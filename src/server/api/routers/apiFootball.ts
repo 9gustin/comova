@@ -1,4 +1,5 @@
 import { z } from "zod";
+import requestIp from "request-ip";
 
 import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 import { ACTIVE_LEAGUES, DEFAULT_TIMEZONE, type League } from "@/config";
@@ -6,6 +7,7 @@ import { env } from "@/env";
 import { LEAGUE_MATCHES_RESPONSE } from "@/mocks/apiResponse";
 import { type LeagueMatchsResponse } from "@/types/leagueMatches";
 import { format } from "date-fns";
+import { ratelimit } from "@/server/ratelimit";
 
 const mapResponse = ({ fixture, goals, teams }: LeagueMatchsResponse['response'][0]) => ({
   id: fixture.id,
@@ -74,7 +76,14 @@ const getLeagueMatches = async ({
 export const apiRouterFootball = createTRPCRouter({
   getMatchesByDates: publicProcedure
     .input(z.object({ from: z.string(), to: z.string() }))
-    .query(async ({ input }) => {
+    .query(async ({ctx}) => {
+      console.log({ctx})
+      const {success} = await ratelimit.limit(ctx.ip!)
+      
+      if (!success) {
+        throw new Error(`Too many requests from ${ctx.ip}`)
+      }
+
       const leagues = await Promise.all(
         ACTIVE_LEAGUES.map((league) => {
           return getLeagueMatches({
@@ -85,5 +94,5 @@ export const apiRouterFootball = createTRPCRouter({
       )
 
       return leagues?.filter((league) => league.matches.length);
-    }),
+    })
 });

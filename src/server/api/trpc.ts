@@ -10,7 +10,9 @@
 import { initTRPC } from "@trpc/server";
 import { type CreateNextContextOptions } from "@trpc/server/adapters/next";
 import superjson from "superjson";
+import requestIp from "request-ip";
 import { ZodError } from "zod";
+import { env } from "@/env";
 
 /**
  * 1. CONTEXT
@@ -33,7 +35,9 @@ type CreateContextOptions = Record<string, never>;
  * @see https://create.t3.gg/en/usage/trpc#-serverapitrpcts
  */
 const createInnerTRPCContext = (_opts: CreateContextOptions) => {
-  return {};
+  return {
+    ip: _opts.ip,
+  };
 };
 
 /**
@@ -43,7 +47,10 @@ const createInnerTRPCContext = (_opts: CreateContextOptions) => {
  * @see https://trpc.io/docs/context
  */
 export const createTRPCContext = (_opts: CreateNextContextOptions) => {
-  return createInnerTRPCContext({});
+  const ip = env.LOCAL_IP_ADDRESS ?? requestIp.getClientIp(_opts.req);
+  return createInnerTRPCContext({
+    ip: ip!,
+  });
 };
 
 /**
@@ -96,4 +103,7 @@ export const createTRPCRouter = t.router;
  * guarantee that a user querying is authorized, but you can still access user session data if they
  * are logged in.
  */
-export const publicProcedure = t.procedure;
+
+export const publicProcedure = t.procedure
+
+
