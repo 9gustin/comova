@@ -11,6 +11,7 @@ export const env = createEnv({
     APIFOOTBALL_KEY: z.string(),
     MOCK_APIDATA: z.string().optional(),
     LOCAL_IP_ADDRESS: z.string().optional(),
+    DISABLE_RATELIMIT: z.string().optional(),
   },
 
   /**
@@ -31,6 +32,7 @@ export const env = createEnv({
     APIFOOTBALL_KEY: process.env.APIFOOTBALL_KEY,
     MOCK_APIDATA: process.env.MOCK_APIDATA,
     LOCAL_IP_ADDRESS: process.env.LOCAL_IP_ADDRESS,
+    DISABLE_RATELIMIT: process.env.DISABLE_RATELIMIT,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**
