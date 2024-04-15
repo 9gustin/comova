@@ -63,8 +63,6 @@ const getLeagueMatches = async ({
 
   const { response } = (await apiResponse.json()) as LeagueMatchsResponse;
 
-  console.log("response", JSON.stringify(response));
-
   return {
     ...league,
     matches: response.map(mapResponse).sort(
@@ -77,7 +75,7 @@ export const apiRouterFootball = createTRPCRouter({
   getMatchesByDates: publicProcedure
     .input(z.object({ from: z.string(), to: z.string() }))
     .query(async ({ input }) => {
-      return Promise.all(
+      const leagues = await Promise.all(
         ACTIVE_LEAGUES.map((league) => {
           return getLeagueMatches({
             from: input.from,
@@ -85,6 +83,8 @@ export const apiRouterFootball = createTRPCRouter({
             league,
           });
         }),
-      );
+      )
+
+      return leagues?.filter((league) => league.matches.length);
     }),
 });
