@@ -1,10 +1,11 @@
 
+import { isDev } from "@/utils/isDev";
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
 
 const upstashRatelimit = new Ratelimit({
   redis: Redis.fromEnv(),
-  limiter: Ratelimit.slidingWindow(10, "100 s"),
+  limiter: Ratelimit.slidingWindow(10, "10 s"),
   analytics: true,
   prefix: "@upstash/ratelimit",
 });
@@ -15,4 +16,4 @@ const mockRatelimit = {
   }
 }
 
-export const ratelimit = process.env.NODE_ENV === "production" ? upstashRatelimit : mockRatelimit;
+export const ratelimit = isDev ? upstashRatelimit : mockRatelimit;
