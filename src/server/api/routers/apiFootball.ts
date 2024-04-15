@@ -5,6 +5,7 @@ import { ACTIVE_LEAGUES, DEFAULT_TIMEZONE, type League } from "@/config";
 import { env } from "@/env";
 import { LEAGUE_MATCHES_RESPONSE } from "@/mocks/apiResponse";
 import { type LeagueMatchsResponse } from "@/types/leagueMatches";
+import { format } from "date-fns";
 
 const mapResponse = ({ fixture, goals, teams }: LeagueMatchsResponse['response'][0]) => ({
   id: fixture.id,
@@ -29,12 +30,10 @@ const mapResponse = ({ fixture, goals, teams }: LeagueMatchsResponse['response']
 
 const getLeagueMatches = async ({
   league,
-  from,
-  to,
+  date,
 }: {
   league: League;
-  from: string;
-  to: string;
+  date: string;
 }) => {
   if (env.MOCK_APIDATA) {
     return {
@@ -47,7 +46,7 @@ const getLeagueMatches = async ({
 
 
   const apiResponse = await fetch(
-        `https://v3.football.api-sports.io/fixtures?season=${league.currentSeason}&league=${league.id}&from=${from}&to=${to}&timezone=${DEFAULT_TIMEZONE}`,
+        `https://v3.football.api-sports.io/fixtures?season=${league.currentSeason}&league=${league.id}&date=${date}&timezone=${DEFAULT_TIMEZONE}`,
         {
           method: "GET",
           headers: {
@@ -61,6 +60,7 @@ const getLeagueMatches = async ({
     throw new Error("Failed to fetch data from API");
   }
 
+  
   const { response } = (await apiResponse.json()) as LeagueMatchsResponse;
 
   return {
@@ -78,8 +78,7 @@ export const apiRouterFootball = createTRPCRouter({
       const leagues = await Promise.all(
         ACTIVE_LEAGUES.map((league) => {
           return getLeagueMatches({
-            from: input.from,
-            to: input.to,
+            date: format(new Date(), "yyyy-MM-dd"),
             league,
           });
         }),
