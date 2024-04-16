@@ -8,6 +8,7 @@ export type LeagueMatchsResponse = {
       };
       status: {
         elapsed: number;
+        short: 'NS' | 'FT';
       };
     };
     league: {

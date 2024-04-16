@@ -1,3 +1,4 @@
+import { MatchStatus } from "@/types/matchStatus";
 import { format } from "date-fns";
 
 const Team = ({ goals, logo, name, isHome }: any) => (
@@ -22,10 +23,21 @@ const Team = ({ goals, logo, name, isHome }: any) => (
   </>
 );
 
-export const Match = ({ id, date, homeTeam, awayTeam }: any) => {
+export const Match = ({ id, date, homeTeam, awayTeam, status }: any) => {
   return (
-    <li className="flex flex-col gap-2 justify-center items-center">
-      <p className="font-semibold text-md">{format(new Date(date), "HH:mm")}hs</p>
+    <li className="flex flex-col items-center justify-center gap-2">
+      {status === MatchStatus.NotStarted && (
+        <p className="text-md font-semibold">
+          {format(new Date(date), "HH:mm")}hs
+        </p>
+      )}
+      {status === MatchStatus.Live && (
+        <p className="text-md font-semibold text-green-400">Ahora</p>
+      )}
+      {status === MatchStatus.Finished && (
+        <p className="text-md font-semibold text-gray-500">Terminado</p>
+      )}
+
       <div key={id} className="flex w-full items-center gap-2">
         <Team {...homeTeam} isHome />
         <span className="text-2xl">-</span>

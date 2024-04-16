@@ -5,9 +5,9 @@ import { ACTIVE_LEAGUES, DEFAULT_TIMEZONE, type League } from "@/config";
 import { env } from "@/env";
 import { LEAGUE_MATCHES_RESPONSE } from "@/mocks/apiResponse";
 import { type LeagueMatchsResponse } from "@/types/leagueMatches";
-import { format } from "date-fns";
 import { ratelimit } from "@/server/ratelimit";
 import { MOCK_STANDINGS_RESPONSE } from "@/mocks/leagueStandings";
+import { mapMatchStatus } from "@/types/matchStatus";
 
 const mapResponse = ({
   fixture,
@@ -17,7 +17,7 @@ const mapResponse = ({
   id: fixture.id,
   date: fixture.date,
   venue: fixture.venue.name,
-  status: fixture.status.elapsed,
+  status: mapMatchStatus(fixture.status.short),
   homeTeam: {
     id: teams.home.id,
     name: teams.home.name,
