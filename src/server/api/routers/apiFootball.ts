@@ -79,6 +79,7 @@ const getLeagueMatches = async ({
   date: string;
 }) => {
   if (env.MOCK_APIDATA) {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     return {
       ...league,
       matches: LEAGUE_MATCHES_RESPONSE.response
@@ -122,6 +123,7 @@ const getLeagueStandings = async ({
   season: number;
 }) => {
   if (env.MOCK_APIDATA) {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     return {
       leagueId,
       standings: mapStandingsResponse(MOCK_STANDINGS_RESPONSE as any),
