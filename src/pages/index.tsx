@@ -41,7 +41,8 @@ export default function Home({
             <div className="flex flex-col">
               <h1 className="text-2xl font-bold">Como va?</h1>
               <Link
-                href="https://9gu.dev"
+                target="_blank"
+                href="https://cafecito.app/9gustin"
                 className="m-0 p-0 text-sm text-gray-300 underline"
               >
                 by @9gustin ;)
