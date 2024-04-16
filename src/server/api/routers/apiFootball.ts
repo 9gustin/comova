@@ -155,8 +155,8 @@ const getLeagueStandings = async ({
 
 export const apiRouterFootball = createTRPCRouter({
   getMatchesByDates: publicProcedure
-    .input(z.object({ from: z.string(), to: z.string() }))
-    .query(async ({ ctx }) => {
+    .input(z.object({ date: z.string() }))
+    .query(async ({ ctx , input}) => {
       const { success } = await ratelimit.limit(ctx.ip!);
 
       if (!success) {
@@ -166,7 +166,7 @@ export const apiRouterFootball = createTRPCRouter({
       const leagues = await Promise.all(
         ACTIVE_LEAGUES.map((league) => {
           return getLeagueMatches({
-            date: format(new Date(), "yyyy-MM-dd"),
+            date: input.date,
             league,
           });
         }),

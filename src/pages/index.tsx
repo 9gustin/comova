@@ -3,16 +3,15 @@ import Link from "next/link";
 import { es } from "date-fns/locale";
 
 import { api } from "@/utils/api";
-import { endOfDay, format, startOfDay } from "date-fns";
+import { format } from "date-fns";
 import { League } from "@/components/League";
 
 export default function Home({
-  today = format(startOfDay(new Date()), "yyyy-MM-dd HH:mm:ss"),
+  today = format(new Date(), "yyyy-MM-dd"),
 }) {
   const { data: leagues, isLoading } =
     api.apiFootball.getMatchesByDates.useQuery({
-      from: today,
-      to: format(endOfDay(today), "yyyy-MM-dd HH:mm:ss"),
+      date: today,
     });
 
   if (isLoading) {
