@@ -1,4 +1,4 @@
-import { type League } from "@/config";
+import { DEFAULT_TIMEZONE, type League } from "@/config";
 import { env } from "@/env";
 import { LEAGUE_MATCHES_RESPONSE } from "@/mocks/apiResponse";
 import { type LeagueMatchsResponse } from "@/types/leagueMatches";

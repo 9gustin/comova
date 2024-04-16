@@ -1,13 +1,11 @@
 import { z } from "zod";
 
 import { createTRPCRouter, rateLimitProcedure } from "@/server/api/trpc";
-import { ACTIVE_LEAGUES, COPADELALIGA_ARG, DEFAULT_TIMEZONE } from "@/config";
+import { ACTIVE_LEAGUES } from "@/config";
 import { getLeagueMatches } from "../services/apifootball/getMatchLeagues";
 import { getLeagueStandings } from "../services/apifootball/getLeagueStandings";
 import { getMatchById } from "../services/apifootball/getMatchById";
-import { env } from "@/env";
 import { groupBEvent } from "../services/apifootball/groupBEvent";
-import { isSameDay } from "date-fns";
 
 export const apiRouterFootball = createTRPCRouter({
   getMatchesByDates: rateLimitProcedure
