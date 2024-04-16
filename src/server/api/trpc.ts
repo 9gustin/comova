@@ -13,6 +13,7 @@ import superjson from "superjson";
 import requestIp from "request-ip";
 import { ZodError } from "zod";
 import { env } from "@/env";
+import { ratelimit } from "../ratelimit";
 
 /**
  * 1. CONTEXT
@@ -105,5 +106,15 @@ export const createTRPCRouter = t.router;
  */
 
 export const publicProcedure = t.procedure
+export const rateLimitProcedure = t.procedure.use(async ({ ctx, next, ...request }) => {
+  const { success } = await ratelimit.limit(ctx.ip);
+
+  if (!success) {
+    throw new Error(`Too many requests from ${ctx.ip}`);
+  }
+
+  return next({ctx, ...request});
+});
+ 
 
 

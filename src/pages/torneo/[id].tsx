@@ -3,18 +3,18 @@ import { api } from "@/utils/api";
 import { IconChevronLeft } from "@tabler/icons-react";
 import { useParams, useRouter } from "next/navigation";
 
-const LeagueTable = ({ table }) => {
+export const LeagueTable = ({ table }) => {
   return (
     <table className="w-full table-auto">
       <thead>
         <tr>
           <th className="text-left">Equipo</th>
           <th className="text-center">Puntos</th>
-          <th className="text-right">PJ</th>
+          <th className="text-right">DIF</th>
         </tr>
       </thead>
       <tbody>
-        {table.map(({id, name, logo, points, played, rank}) => (
+        {table.map(({id, name, logo, points, goalsDiff, rank}) => (
           <tr key={id}>
             <td className="flex h-10 items-center gap-4">
               <img
@@ -28,7 +28,7 @@ const LeagueTable = ({ table }) => {
               {name}
             </td>
             <td className="text-center">{points}</td>
-            <td className="text-right">{played}</td>
+            <td className="text-right">{goalsDiff}</td>
           </tr>
         ))}
       </tbody>

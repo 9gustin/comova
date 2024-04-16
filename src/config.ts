@@ -7,7 +7,7 @@ export type League = {
   logo: string;
 };
 
-const COPADELALIGA_ARG = {
+export const COPADELALIGA_ARG = {
   id: 1032,
   currentSeason: 2024,
   name: "Copa de la Liga Profesional",

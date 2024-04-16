@@ -4,7 +4,7 @@ import { Fragment } from "react";
 
 export const League = ({ id, logo, name, matches }: any) => {
   return (
-    <div key={id} className="card w-full bg-base-100 p-4 shadow-xl gap-4">
+    <div key={id} className="card w-full gap-4 bg-base-100 p-4 shadow-xl">
       <div className="flex gap-4">
         <img
           src={logo}
@@ -14,16 +14,16 @@ export const League = ({ id, logo, name, matches }: any) => {
             width: "auto",
           }}
         />
-          <h3 className="card-title flex-1 text-lg gap-2 justify-between">
-        <Link href={`/leagues/${id}`}>
-            {name}
-        </Link>
-          </h3>
+        <h3 className="card-title flex-1 justify-between gap-2 text-lg">
+          <Link href={`/torneo/${id}`}>{name}</Link>
+        </h3>
       </div>
       <ul className="flex flex-col gap-2">
         {matches?.map((match, i) => (
           <Fragment key={match.id}>
-            <Match {...match} />
+            <li>
+              <Match {...match} />
+            </li>
             {i < matches.length - 1 && <div className="divider m-0" />}
           </Fragment>
         ))}

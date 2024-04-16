@@ -12,6 +12,7 @@ const upstashRatelimit = new Ratelimit({
 
 const mockRatelimit = {
   limit() {
+    console.log("Ratelimiting...");
     return {success: true}
   }
 }

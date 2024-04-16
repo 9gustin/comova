@@ -34,5 +34,26 @@ export type LeagueMatchsResponse = {
       home: number;
       away: number;
     };
+    events?: Array<{
+      time: {
+        elapsed: number;
+        extra: number;
+      };
+      team: {
+        id: number;
+        name: string;
+        logo: string;
+      };
+      player: {
+        id: number;
+        name: string;
+      };
+      assist: {
+        id: number;
+        name: string;
+      };
+      type: string;
+      detail: string;
+    }>;
   }>;
 };

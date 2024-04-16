@@ -5,7 +5,7 @@ import { es } from "date-fns/locale";
 import { api } from "@/utils/api";
 import { format } from "date-fns";
 import { League } from "@/components/League";
-import { IconReload } from "@tabler/icons-react";
+import { IconExternalLink, IconReload } from "@tabler/icons-react";
 import { useState } from "react";
 
 export default function Home({ today = format(new Date(), "yyyy-MM-dd") }) {
@@ -67,6 +67,10 @@ export default function Home({ today = format(new Date(), "yyyy-MM-dd") }) {
             {format(new Date(), "d/MM", { locale: es })}
           </h2>
         </header>
+        <Link className="alert alert-info w-full flex" href={`/grupo-b`}>
+          <IconExternalLink />
+          <span className="flex-1 text-left">Segui la definicion del grupo B de la copa de la liga</span>
+        </Link>
         {leagues?.length ? (
           <ul className="flex w-full max-w-lg flex-1 flex-col gap-4 ">
             {leagues.map((league) => (

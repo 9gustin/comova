@@ -1,7 +1,8 @@
 import { MatchStatus } from "@/types/matchStatus";
 import { format } from "date-fns";
+import Link from "next/link";
 
-const Team = ({ goals, logo, name, isHome }: any) => (
+export const Team = ({ goals, logo, name, isHome }: any) => (
   <>
     {!isHome && <p className="text-lg">{goals}</p>}
     <div
@@ -25,7 +26,10 @@ const Team = ({ goals, logo, name, isHome }: any) => (
 
 export const Match = ({ id, date, homeTeam, awayTeam, status }: any) => {
   return (
-    <li className="flex flex-col items-center justify-center gap-2">
+    <Link
+      className="flex flex-col items-center justify-center gap-2"
+      href={`/partido/${id}`}
+    >
       {status === MatchStatus.NotStarted && (
         <p className="text-md font-semibold">
           {format(new Date(date), "HH:mm")}hs
@@ -43,6 +47,6 @@ export const Match = ({ id, date, homeTeam, awayTeam, status }: any) => {
         <span className="text-2xl">-</span>
         <Team {...awayTeam} />
       </div>
-    </li>
+    </Link>
   );
 };
