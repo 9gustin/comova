@@ -56,7 +56,7 @@ export default function Home({ today = format(new Date(), "yyyy-MM-dd") }) {
               <Link
                 target="_blank"
                 href="https://cafecito.app/9gustin"
-                className="m-0 p-0 text-sm text-gray-300 underline"
+                className="m-0 p-0 text-sm underline font-light"
               >
                 by @9gustin ;)
               </Link>
@@ -67,10 +67,6 @@ export default function Home({ today = format(new Date(), "yyyy-MM-dd") }) {
             {format(new Date(), "d/MM", { locale: es })}
           </h2>
         </header>
-        <Link className="alert alert-info w-full flex" href={`/grupo-b`}>
-          <IconExternalLink />
-          <span className="flex-1 text-left">Segui la definicion del grupo B de la copa de la liga</span>
-        </Link>
         {leagues?.length ? (
           <ul className="flex w-full max-w-lg flex-1 flex-col gap-4 ">
             {leagues.map((league) => (
@@ -85,7 +81,7 @@ export default function Home({ today = format(new Date(), "yyyy-MM-dd") }) {
       </div>
       {showRefresh && (
         <button
-          className="btn btn-circle btn-outline fixed bottom-4 right-4 bg-gray-800 shadow-md shadow-gray-700"
+          className="btn btn-circle btn-outline fixed bottom-4 right-4 shadow-md"
           onClick={handleRefresh}
           disabled={isRefetching}
         >
