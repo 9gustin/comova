@@ -1,7 +1,18 @@
-export const TeamTeam = ({ goals, logo, isHome }) => {
+import { type FC } from "react";
+
+const scoreCn = "text-sm font-semibold"
+
+export const TeamTeam: FC<{
+  goals: number;
+  logo: string;
+  isHome?: boolean;
+  name?: string;
+  iconClassName?: string;
+  scoreClassName?: string;
+}> = ({ goals, logo, isHome, name, iconClassName, scoreClassName }) => {
   return (
     <>
-      {!isHome && <p className="text-sm font-semibold">{goals}</p>}
+      {!isHome && <p className={scoreClassName ?? scoreCn}>{goals}</p>}
       <div
         className={`flex items-center gap-2 ${isHome ? "flex-row-reverse" : "flex-row"}`}
         style={{
@@ -9,12 +20,12 @@ export const TeamTeam = ({ goals, logo, isHome }) => {
         }}
       >
         <div className="avatar">
-          <div className="w-8 rounded">
+          <div className={iconClassName ?? 'w-8'}>
             <img src={logo || ""} alt={name} />
           </div>
         </div>
       </div>
-      {isHome && <p className="text-sm font-semibold">{goals}</p>}
+      {isHome && <p className={scoreClassName ?? scoreCn}>{goals}</p>}
     </>
   );
 };

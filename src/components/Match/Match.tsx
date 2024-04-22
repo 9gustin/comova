@@ -1,12 +1,19 @@
 import { MatchStatus } from "@/types/matchStatus";
 import { format } from "date-fns";
 import Link from "next/link";
+import { type FC } from "react";
 
-export const Team = ({ goals, logo, name, isHome }: any) => (
+export const Team: FC<{
+  goals: number;
+  logo: string;
+  name: string;
+  isHome?: boolean;
+  teamCn?: string;
+}> = ({ goals, logo, name, isHome, teamCn }) => (
   <>
     {!isHome && <p className="text-lg">{goals}</p>}
     <div
-      className={`flex items-center gap-2 ${isHome ? "flex-row-reverse" : "flex-row"}`}
+      className={`flex flex-1 items-center gap-2 ${isHome ? "flex-row-reverse" : "flex-row"}`}
       style={{
         width: "50%",
       }}
@@ -16,7 +23,9 @@ export const Team = ({ goals, logo, name, isHome }: any) => (
           <img src={logo || ""} alt={name} />
         </div>
       </div>
-      <p className={`font text-sm ${isHome ? "text-right" : "text-left"}`}>
+      <p
+        className={`font text-sm ${isHome ? "text-right" : "text-left"} ${teamCn ?? ""}`}
+      >
         {name}
       </p>
     </div>
@@ -24,12 +33,12 @@ export const Team = ({ goals, logo, name, isHome }: any) => (
   </>
 );
 
-export const Match = ({ id, date, homeTeam, awayTeam, status }: any) => {
+export const RenderMatchStatus: FC<{ status: MatchStatus; date: Date }> = ({
+  date,
+  status,
+}) => {
   return (
-    <Link
-      className="flex flex-col items-center justify-center gap-2"
-      href={`/partido/${id}`}
-    >
+    <>
       {status === MatchStatus.NotStarted && (
         <p className="text-md font-semibold">
           {format(new Date(date), "HH:mm")}hs
@@ -41,6 +50,17 @@ export const Match = ({ id, date, homeTeam, awayTeam, status }: any) => {
       {status === MatchStatus.Finished && (
         <p className="text-md font-semibold text-gray-500">Terminado</p>
       )}
+    </>
+  );
+};
+
+export const Match = ({ id, date, homeTeam, awayTeam, status }: any) => {
+  return (
+    <Link
+      className="flex flex-col items-center justify-center gap-2"
+      href={`/partido/${id}`}
+    >
+      <RenderMatchStatus date={date} status={status} />
 
       <div key={id} className="flex w-full items-center gap-2">
         <Team {...homeTeam} isHome />

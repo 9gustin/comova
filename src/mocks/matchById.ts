@@ -1,19 +1,21 @@
-export const MATCH_BYID_RESPONSE = [
+import { type MatchEventsResponse } from "@/types/matchEvents";
+
+export const MATCH_BYID_RESPONSE: MatchEventsResponse[] = [
   {
     fixture: {
-      id: 1187110,
-      referee: "F. Gilabert",
+      id: 1196706,
+      referee: "Yael Falcon Perez, Argentina",
       timezone: "UTC",
-      date: "2024-04-10T22:00:00+00:00",
-      timestamp: 1712786400,
+      date: "2024-04-21T18:30:00+00:00",
+      timestamp: 1713724200,
       periods: {
-        first: 1712786400,
-        second: 1712790000,
+        first: 1713724200,
+        second: 1713727800,
       },
       venue: {
-        id: 59,
-        name: "Estadio Norberto Tito Tomaghello",
-        city: "Florencio Varela, Provincia de Buenos Aires",
+        id: 19570,
+        name: "Estadio Mâs Monumental",
+        city: "Capital Federal, Ciudad de Buenos Aires",
       },
       status: {
         long: "Match Finished",
@@ -22,40 +24,40 @@ export const MATCH_BYID_RESPONSE = [
       },
     },
     league: {
-      id: 11,
-      name: "CONMEBOL Sudamericana",
-      country: "World",
-      logo: "https://media.api-sports.io/football/leagues/11.png",
-      flag: null,
+      id: 1032,
+      name: "Copa de la Liga Profesional",
+      country: "Argentina",
+      logo: "https://media.api-sports.io/football/leagues/1032.png",
+      flag: "https://media.api-sports.io/flags/ar.svg",
       season: 2024,
-      round: "Group Stage - 2",
+      round: "1st Phase - Quarter-finals",
     },
     teams: {
       home: {
-        id: 442,
-        name: "Defensa Y Justicia",
-        logo: "https://media.api-sports.io/football/teams/442.png",
-        winner: null,
+        id: 435,
+        name: "River Plate",
+        logo: "https://media.api-sports.io/football/teams/435.png",
+        winner: false,
       },
       away: {
-        id: 3700,
-        name: "Always Ready",
-        logo: "https://media.api-sports.io/football/teams/3700.png",
-        winner: null,
+        id: 451,
+        name: "Boca Juniors",
+        logo: "https://media.api-sports.io/football/teams/451.png",
+        winner: true,
       },
     },
     goals: {
-      home: 1,
-      away: 1,
+      home: 2,
+      away: 3,
     },
     score: {
       halftime: {
         home: 1,
-        away: 0,
+        away: 1,
       },
       fulltime: {
-        home: 1,
-        away: 1,
+        home: 2,
+        away: 3,
       },
       extratime: {
         home: null,
@@ -69,17 +71,61 @@ export const MATCH_BYID_RESPONSE = [
     events: [
       {
         time: {
-          elapsed: 3,
+          elapsed: 10,
           extra: null,
         },
         team: {
-          id: 442,
-          name: "Defensa Y Justicia",
-          logo: "https://media.api-sports.io/football/teams/442.png",
+          id: 435,
+          name: "River Plate",
+          logo: "https://media.api-sports.io/football/teams/435.png",
         },
         player: {
-          id: 5917,
-          name: "Julián López",
+          id: 9933,
+          name: "Miguel Borja",
+        },
+        assist: {
+          id: 414385,
+          name: "Claudio Echeverri",
+        },
+        type: "Goal",
+        detail: "Normal Goal",
+        comments: null,
+      },
+      {
+        time: {
+          elapsed: 40,
+          extra: null,
+        },
+        team: {
+          id: 435,
+          name: "River Plate",
+          logo: "https://media.api-sports.io/football/teams/435.png",
+        },
+        player: {
+          id: 414385,
+          name: "Claudio Echeverri",
+        },
+        assist: {
+          id: null,
+          name: null,
+        },
+        type: "Card",
+        detail: "Yellow Card",
+        comments: null,
+      },
+      {
+        time: {
+          elapsed: 44,
+          extra: null,
+        },
+        team: {
+          id: 451,
+          name: "Boca Juniors",
+          logo: "https://media.api-sports.io/football/teams/451.png",
+        },
+        player: {
+          id: 6327,
+          name: "Miguel Merentiel",
         },
         assist: {
           id: null,
@@ -91,17 +137,105 @@ export const MATCH_BYID_RESPONSE = [
       },
       {
         time: {
-          elapsed: 22,
+          elapsed: 45,
+          extra: 1,
+        },
+        team: {
+          id: 435,
+          name: "River Plate",
+          logo: "https://media.api-sports.io/football/teams/435.png",
+        },
+        player: {
+          id: 5997,
+          name: "Nacho Fernández",
+        },
+        assist: {
+          id: null,
+          name: null,
+        },
+        type: "Card",
+        detail: "Yellow Card",
+        comments: "Handball",
+      },
+      {
+        time: {
+          elapsed: 45,
+          extra: 1,
+        },
+        team: {
+          id: 451,
+          name: "Boca Juniors",
+          logo: "https://media.api-sports.io/football/teams/451.png",
+        },
+        player: {
+          id: 6327,
+          name: "Miguel Merentiel",
+        },
+        assist: {
+          id: 2419,
+          name: "Luis Advíncula",
+        },
+        type: "Goal",
+        detail: "Normal Goal",
+        comments: null,
+      },
+      {
+        time: {
+          elapsed: 48,
           extra: null,
         },
         team: {
-          id: 3700,
-          name: "Always Ready",
-          logo: "https://media.api-sports.io/football/teams/3700.png",
+          id: 435,
+          name: "River Plate",
+          logo: "https://media.api-sports.io/football/teams/435.png",
         },
         player: {
-          id: 66441,
-          name: "Wesley Tanque",
+          id: 9933,
+          name: "Miguel Borja",
+        },
+        assist: {
+          id: null,
+          name: null,
+        },
+        type: "Card",
+        detail: "Yellow Card",
+        comments: "Argument",
+      },
+      {
+        time: {
+          elapsed: 48,
+          extra: null,
+        },
+        team: {
+          id: 451,
+          name: "Boca Juniors",
+          logo: "https://media.api-sports.io/football/teams/451.png",
+        },
+        player: {
+          id: 890,
+          name: "Marcos Rojo",
+        },
+        assist: {
+          id: null,
+          name: null,
+        },
+        type: "Card",
+        detail: "Yellow Card",
+        comments: "Argument",
+      },
+      {
+        time: {
+          elapsed: 55,
+          extra: null,
+        },
+        team: {
+          id: 435,
+          name: "River Plate",
+          logo: "https://media.api-sports.io/football/teams/435.png",
+        },
+        player: {
+          id: 6602,
+          name: "Marcelo Herrera",
         },
         assist: {
           id: null,
@@ -113,43 +247,65 @@ export const MATCH_BYID_RESPONSE = [
       },
       {
         time: {
-          elapsed: 27,
+          elapsed: 60,
           extra: null,
         },
         team: {
-          id: 3700,
-          name: "Always Ready",
-          logo: "https://media.api-sports.io/football/teams/3700.png",
+          id: 435,
+          name: "River Plate",
+          logo: "https://media.api-sports.io/football/teams/435.png",
         },
         player: {
-          id: 404870,
-          name: "Robson Matheus",
+          id: 5997,
+          name: "Nacho Fernández",
         },
         assist: {
-          id: null,
-          name: null,
+          id: 2473,
+          name: "Manuel Lanzini",
         },
-        type: "Card",
-        detail: "Yellow Card",
-        comments: "Foul",
+        type: "subst",
+        detail: "Substitution 1",
+        comments: null,
       },
       {
         time: {
-          elapsed: 30,
+          elapsed: 60,
           extra: null,
         },
         team: {
-          id: 442,
-          name: "Defensa Y Justicia",
-          logo: "https://media.api-sports.io/football/teams/442.png",
+          id: 435,
+          name: "River Plate",
+          logo: "https://media.api-sports.io/football/teams/435.png",
         },
         player: {
-          id: 5952,
-          name: "N. Fernández",
+          id: 414385,
+          name: "Claudio Echeverri",
         },
         assist: {
-          id: 5938,
-          name: "N. Tripichio",
+          id: 50880,
+          name: "Esequiel Barco",
+        },
+        type: "subst",
+        detail: "Substitution 2",
+        comments: null,
+      },
+      {
+        time: {
+          elapsed: 62,
+          extra: null,
+        },
+        team: {
+          id: 451,
+          name: "Boca Juniors",
+          logo: "https://media.api-sports.io/football/teams/451.png",
+        },
+        player: {
+          id: 274,
+          name: "Edinson Cavani",
+        },
+        assist: {
+          id: 288707,
+          name: "Kevin Zenón",
         },
         type: "Goal",
         detail: "Normal Goal",
@@ -157,175 +313,21 @@ export const MATCH_BYID_RESPONSE = [
       },
       {
         time: {
-          elapsed: 34,
+          elapsed: 64,
           extra: null,
         },
         team: {
-          id: 442,
-          name: "Defensa Y Justicia",
-          logo: "https://media.api-sports.io/football/teams/442.png",
+          id: 451,
+          name: "Boca Juniors",
+          logo: "https://media.api-sports.io/football/teams/451.png",
         },
         player: {
-          id: 5911,
-          name: "Alexis Soto",
+          id: 392734,
+          name: "Jabes Saralegui",
         },
         assist: {
-          id: null,
-          name: null,
-        },
-        type: "Card",
-        detail: "Yellow Card",
-        comments: "Foul",
-      },
-      {
-        time: {
-          elapsed: 41,
-          extra: null,
-        },
-        team: {
-          id: 3700,
-          name: "Always Ready",
-          logo: "https://media.api-sports.io/football/teams/3700.png",
-        },
-        player: {
-          id: 311444,
-          name: "Pablo Vaca",
-        },
-        assist: {
-          id: null,
-          name: null,
-        },
-        type: "Card",
-        detail: "Yellow Card",
-        comments: "Foul",
-      },
-      {
-        time: {
-          elapsed: 46,
-          extra: null,
-        },
-        team: {
-          id: 442,
-          name: "Defensa Y Justicia",
-          logo: "https://media.api-sports.io/football/teams/442.png",
-        },
-        player: {
-          id: 70730,
-          name: "R. Bogarín",
-        },
-        assist: {
-          id: 325250,
-          name: "K. López",
-        },
-        type: "subst",
-        detail: "Substitution 1",
-        comments: null,
-      },
-      {
-        time: {
-          elapsed: 50,
-          extra: null,
-        },
-        team: {
-          id: 3700,
-          name: "Always Ready",
-          logo: "https://media.api-sports.io/football/teams/3700.png",
-        },
-        player: {
-          id: 65978,
-          name: "Adalid Terrazas",
-        },
-        assist: {
-          id: null,
-          name: null,
-        },
-        type: "Card",
-        detail: "Yellow Card",
-        comments: "Foul",
-      },
-      {
-        time: {
-          elapsed: 61,
-          extra: null,
-        },
-        team: {
-          id: 3700,
-          name: "Always Ready",
-          logo: "https://media.api-sports.io/football/teams/3700.png",
-        },
-        player: {
-          id: 354347,
-          name: "Héctor Cuellar",
-        },
-        assist: {
-          id: null,
-          name: null,
-        },
-        type: "Card",
-        detail: "Yellow Card",
-        comments: "Foul",
-      },
-      {
-        time: {
-          elapsed: 63,
-          extra: null,
-        },
-        team: {
-          id: 442,
-          name: "Defensa Y Justicia",
-          logo: "https://media.api-sports.io/football/teams/442.png",
-        },
-        player: {
-          id: 5917,
-          name: "J. López",
-        },
-        assist: {
-          id: 295508,
-          name: "E. Cannavo",
-        },
-        type: "subst",
-        detail: "Substitution 2",
-        comments: null,
-      },
-      {
-        time: {
-          elapsed: 66,
-          extra: null,
-        },
-        team: {
-          id: 3700,
-          name: "Always Ready",
-          logo: "https://media.api-sports.io/football/teams/3700.png",
-        },
-        player: {
-          id: 406329,
-          name: "Darlison Rodriguez",
-        },
-        assist: {
-          id: null,
-          name: null,
-        },
-        type: "Card",
-        detail: "Yellow Card",
-        comments: "Foul",
-      },
-      {
-        time: {
-          elapsed: 67,
-          extra: null,
-        },
-        team: {
-          id: 3700,
-          name: "Always Ready",
-          logo: "https://media.api-sports.io/football/teams/3700.png",
-        },
-        player: {
-          id: 406329,
-          name: "D. Rodrígues",
-        },
-        assist: {
-          id: 65664,
-          name: "J. Herrera",
+          id: 6082,
+          name: "Nicolás Figal",
         },
         type: "subst",
         detail: "Substitution 1",
@@ -337,20 +339,64 @@ export const MATCH_BYID_RESPONSE = [
           extra: null,
         },
         team: {
-          id: 3700,
-          name: "Always Ready",
-          logo: "https://media.api-sports.io/football/teams/3700.png",
+          id: 451,
+          name: "Boca Juniors",
+          logo: "https://media.api-sports.io/football/teams/451.png",
         },
         player: {
-          id: 311444,
-          name: "P. Vaca",
+          id: 6327,
+          name: "Miguel Merentiel",
         },
         assist: {
-          id: 35986,
-          name: "A. Del Valle",
+          id: null,
+          name: null,
+        },
+        type: "Goal",
+        detail: "Normal Goal",
+        comments: null,
+      },
+      {
+        time: {
+          elapsed: 70,
+          extra: null,
+        },
+        team: {
+          id: 451,
+          name: "Boca Juniors",
+          logo: "https://media.api-sports.io/football/teams/451.png",
+        },
+        player: {
+          id: 274,
+          name: "Edinson Cavani",
+        },
+        assist: {
+          id: null,
+          name: null,
+        },
+        type: "Card",
+        detail: "Yellow Card",
+        comments: "Foul",
+      },
+      {
+        time: {
+          elapsed: 70,
+          extra: null,
+        },
+        team: {
+          id: 435,
+          name: "River Plate",
+          logo: "https://media.api-sports.io/football/teams/435.png",
+        },
+        player: {
+          id: 6028,
+          name: "Rodrigo Aliendro",
+        },
+        assist: {
+          id: 194906,
+          name: "Pablo Solari",
         },
         type: "subst",
-        detail: "Substitution 2",
+        detail: "Substitution 3",
         comments: null,
       },
       {
@@ -359,43 +405,65 @@ export const MATCH_BYID_RESPONSE = [
           extra: null,
         },
         team: {
-          id: 3700,
-          name: "Always Ready",
-          logo: "https://media.api-sports.io/football/teams/3700.png",
+          id: 435,
+          name: "River Plate",
+          logo: "https://media.api-sports.io/football/teams/435.png",
         },
         player: {
-          id: 65978,
-          name: "A. Terrazas",
+          id: 214,
+          name: "Facundo Colidio",
         },
         assist: {
-          id: 35986,
-          name: "A. Del Valle",
+          id: null,
+          name: null,
         },
-        type: "Goal",
-        detail: "Normal Goal",
-        comments: null,
+        type: "Card",
+        detail: "Yellow Card",
+        comments: "Foul",
       },
       {
         time: {
-          elapsed: 79,
+          elapsed: 73,
           extra: null,
         },
         team: {
-          id: 442,
-          name: "Defensa Y Justicia",
-          logo: "https://media.api-sports.io/football/teams/442.png",
+          id: 451,
+          name: "Boca Juniors",
+          logo: "https://media.api-sports.io/football/teams/451.png",
         },
         player: {
-          id: 5911,
-          name: "A. Soto",
+          id: 274,
+          name: "Edinson Cavani",
         },
         assist: {
-          id: 6577,
-          name: "G. Alanís",
+          id: 2478,
+          name: "Darío Benedetto",
         },
         type: "subst",
-        detail: "Substitution 3",
+        detail: "Substitution 2",
         comments: null,
+      },
+      {
+        time: {
+          elapsed: 76,
+          extra: null,
+        },
+        team: {
+          id: 451,
+          name: "Boca Juniors",
+          logo: "https://media.api-sports.io/football/teams/451.png",
+        },
+        player: {
+          id: 289444,
+          name: "Lautaro Blanco",
+        },
+        assist: {
+          id: null,
+          name: null,
+        },
+        type: "Card",
+        detail: "Yellow Card",
+        comments: "Foul",
       },
       {
         time: {
@@ -403,17 +471,39 @@ export const MATCH_BYID_RESPONSE = [
           extra: null,
         },
         team: {
-          id: 442,
-          name: "Defensa Y Justicia",
-          logo: "https://media.api-sports.io/football/teams/442.png",
+          id: 435,
+          name: "River Plate",
+          logo: "https://media.api-sports.io/football/teams/435.png",
         },
         player: {
-          id: 323847,
-          name: "N. Palavecino",
+          id: 6519,
+          name: "Rodrigo Villagra",
         },
         assist: {
-          id: 133990,
-          name: "Y. Zapata",
+          id: null,
+          name: null,
+        },
+        type: "Card",
+        detail: "Yellow Card",
+        comments: "Foul",
+      },
+      {
+        time: {
+          elapsed: 80,
+          extra: null,
+        },
+        team: {
+          id: 435,
+          name: "River Plate",
+          logo: "https://media.api-sports.io/football/teams/435.png",
+        },
+        player: {
+          id: 6519,
+          name: "Rodrigo Villagra",
+        },
+        assist: {
+          id: 30690,
+          name: "Nicolas Fonseca",
         },
         type: "subst",
         detail: "Substitution 4",
@@ -421,21 +511,21 @@ export const MATCH_BYID_RESPONSE = [
       },
       {
         time: {
-          elapsed: 86,
+          elapsed: 80,
           extra: null,
         },
         team: {
-          id: 442,
-          name: "Defensa Y Justicia",
-          logo: "https://media.api-sports.io/football/teams/442.png",
+          id: 435,
+          name: "River Plate",
+          logo: "https://media.api-sports.io/football/teams/435.png",
         },
         player: {
-          id: 409590,
-          name: "E. Calderón",
+          id: 6602,
+          name: "Marcelo Herrera",
         },
         assist: {
-          id: 6627,
-          name: "N. Blandi",
+          id: 237143,
+          name: "Santiago Simón",
         },
         type: "subst",
         detail: "Substitution 5",
@@ -447,17 +537,17 @@ export const MATCH_BYID_RESPONSE = [
           extra: null,
         },
         team: {
-          id: 3700,
-          name: "Always Ready",
-          logo: "https://media.api-sports.io/football/teams/3700.png",
+          id: 451,
+          name: "Boca Juniors",
+          logo: "https://media.api-sports.io/football/teams/451.png",
         },
         player: {
-          id: 404870,
-          name: "R. Matheus",
+          id: 5916,
+          name: "Pol Fernández",
         },
         assist: {
-          id: 191855,
-          name: "J. Martínes",
+          id: 5972,
+          name: "Jorman Campuzano",
         },
         type: "subst",
         detail: "Substitution 3",
@@ -465,21 +555,21 @@ export const MATCH_BYID_RESPONSE = [
       },
       {
         time: {
-          elapsed: 90,
-          extra: 5,
+          elapsed: 86,
+          extra: null,
         },
         team: {
-          id: 3700,
-          name: "Always Ready",
-          logo: "https://media.api-sports.io/football/teams/3700.png",
+          id: 451,
+          name: "Boca Juniors",
+          logo: "https://media.api-sports.io/football/teams/451.png",
         },
         player: {
-          id: 65978,
-          name: "A. Terrazas",
+          id: 6327,
+          name: "Miguel Merentiel",
         },
         assist: {
-          id: 265923,
-          name: "Alexandro Zenteno",
+          id: 363393,
+          name: "Luca Langoni",
         },
         type: "subst",
         detail: "Substitution 4",
@@ -488,16 +578,16 @@ export const MATCH_BYID_RESPONSE = [
       {
         time: {
           elapsed: 90,
-          extra: null,
+          extra: 6,
         },
         team: {
-          id: 442,
-          name: "Defensa Y Justicia",
-          logo: "https://media.api-sports.io/football/teams/442.png",
+          id: 451,
+          name: "Boca Juniors",
+          logo: "https://media.api-sports.io/football/teams/451.png",
         },
         player: {
-          id: 325250,
-          name: "Kevin Lopez",
+          id: 6082,
+          name: "Nicolás Figal",
         },
         assist: {
           id: null,
@@ -510,16 +600,16 @@ export const MATCH_BYID_RESPONSE = [
       {
         time: {
           elapsed: 90,
-          extra: 5,
+          extra: 3,
         },
         team: {
-          id: 442,
-          name: "Defensa Y Justicia",
-          logo: "https://media.api-sports.io/football/teams/442.png",
+          id: 435,
+          name: "River Plate",
+          logo: "https://media.api-sports.io/football/teams/435.png",
         },
         player: {
-          id: 51822,
-          name: "Cristopher Fiermarín",
+          id: 194906,
+          name: "Pablo Solari",
         },
         assist: {
           id: null,
@@ -529,128 +619,134 @@ export const MATCH_BYID_RESPONSE = [
         detail: "Yellow Card",
         comments: "Argument",
       },
+      {
+        time: {
+          elapsed: 90,
+          extra: 7,
+        },
+        team: {
+          id: 435,
+          name: "River Plate",
+          logo: "https://media.api-sports.io/football/teams/435.png",
+        },
+        player: {
+          id: 2550,
+          name: "Paulo Díaz",
+        },
+        assist: {
+          id: null,
+          name: null,
+        },
+        type: "Goal",
+        detail: "Normal Goal",
+        comments: null,
+      },
     ],
     lineups: [
       {
         team: {
-          id: 442,
-          name: "Defensa Y Justicia",
-          logo: "https://media.api-sports.io/football/teams/442.png",
-          colors: {
-            player: {
-              primary: "ffff00",
-              number: "49af12",
-              border: "ffff00",
-            },
-            goalkeeper: {
-              primary: "f7bad9",
-              number: "ffffff",
-              border: "f7bad9",
-            },
-          },
+          id: 435,
+          name: "River Plate",
+          logo: "https://media.api-sports.io/football/teams/435.png",
+          colors: null,
         },
-        coach: {
-          id: 17010,
-          name: "J. Vaccari",
-          photo: "https://media.api-sports.io/football/coachs/17010.png",
-        },
-        formation: "4-2-3-1",
+        formation: "4-3-1-2",
         startXI: [
           {
             player: {
-              id: 51822,
-              name: "C. Fiermarín",
-              number: 22,
+              id: 2463,
+              name: "Franco Armani",
+              number: 1,
               pos: "G",
               grid: "1:1",
             },
           },
           {
             player: {
-              id: 5938,
-              name: "N. Tripichio",
-              number: 4,
+              id: 6602,
+              name: "Marcelo Herrera",
+              number: 15,
               pos: "D",
               grid: "2:4",
             },
           },
           {
             player: {
-              id: 409590,
-              name: "E. Calderón",
-              number: 20,
+              id: 50875,
+              name: "Leandro González Pírez",
+              number: 14,
               pos: "D",
               grid: "2:3",
             },
           },
           {
             player: {
-              id: 46940,
-              name: "E. Burgos",
-              number: 6,
+              id: 2550,
+              name: "Paulo Díaz",
+              number: 17,
               pos: "D",
               grid: "2:2",
             },
           },
           {
             player: {
-              id: 6198,
-              name: "D. Cáceres",
-              number: 26,
+              id: 6237,
+              name: "Enzo Díaz",
+              number: 13,
               pos: "D",
               grid: "2:1",
             },
           },
           {
             player: {
-              id: 5917,
-              name: "J. López",
-              number: 8,
+              id: 5997,
+              name: "Nacho Fernández",
+              number: 26,
+              pos: "M",
+              grid: "3:3",
+            },
+          },
+          {
+            player: {
+              id: 6519,
+              name: "Rodrigo Villagra",
+              number: 23,
               pos: "M",
               grid: "3:2",
             },
           },
           {
             player: {
-              id: 5911,
-              name: "A. Soto",
-              number: 3,
+              id: 6028,
+              name: "Rodrigo Aliendro",
+              number: 29,
               pos: "M",
               grid: "3:1",
             },
           },
           {
             player: {
-              id: 323847,
-              name: "N. Palavecino",
-              number: 33,
-              pos: "M",
-              grid: "4:3",
-            },
-          },
-          {
-            player: {
-              id: 70730,
-              name: "R. Bogarín",
-              number: 10,
-              pos: "M",
-              grid: "4:2",
-            },
-          },
-          {
-            player: {
-              id: 58668,
-              name: "L. Herrera",
-              number: 27,
+              id: 414385,
+              name: "Claudio Echeverri",
+              number: 19,
               pos: "M",
               grid: "4:1",
             },
           },
           {
             player: {
-              id: 5952,
-              name: "N. Fernández",
-              number: 29,
+              id: 9933,
+              name: "Miguel Borja",
+              number: 9,
+              pos: "F",
+              grid: "5:2",
+            },
+          },
+          {
+            player: {
+              id: 214,
+              name: "Facundo Colidio",
+              number: 11,
               pos: "F",
               grid: "5:1",
             },
@@ -659,53 +755,26 @@ export const MATCH_BYID_RESPONSE = [
         substitutes: [
           {
             player: {
-              id: 325250,
-              name: "K. López",
-              number: 30,
+              id: 2473,
+              name: "Manuel Lanzini",
+              number: 10,
               pos: "M",
               grid: null,
             },
           },
           {
             player: {
-              id: 295508,
-              name: "E. Cannavo",
-              number: 14,
-              pos: "D",
-              grid: null,
-            },
-          },
-          {
-            player: {
-              id: 133990,
-              name: "Y. Zapata",
-              number: 7,
-              pos: "F",
-              grid: null,
-            },
-          },
-          {
-            player: {
-              id: 6577,
-              name: "G. Alanís",
-              number: 17,
+              id: 50880,
+              name: "Esequiel Barco",
+              number: 21,
               pos: "M",
               grid: null,
             },
           },
           {
             player: {
-              id: 6627,
-              name: "N. Blandi",
-              number: 37,
-              pos: "F",
-              grid: null,
-            },
-          },
-          {
-            player: {
-              id: 295510,
-              name: "F. Echevarría",
+              id: 194906,
+              name: "Pablo Solari",
               number: 36,
               pos: "F",
               grid: null,
@@ -713,217 +782,71 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 289482,
-              name: "F. Romero",
-              number: 18,
+              id: 237143,
+              name: "Santiago Simón",
+              number: 31,
               pos: "M",
               grid: null,
             },
           },
           {
             player: {
-              id: 278358,
-              name: "L. Godoy",
-              number: 9,
-              pos: "F",
-              grid: null,
-            },
-          },
-          {
-            player: {
-              id: 5984,
-              name: "E. Bologna",
-              number: 23,
-              pos: "G",
-              grid: null,
-            },
-          },
-          {
-            player: {
-              id: 414391,
-              name: "U. Giménez",
-              number: 40,
-              pos: "D",
-              grid: null,
-            },
-          },
-          {
-            player: {
-              id: 392041,
-              name: "S. Lucero",
-              number: 13,
-              pos: "D",
-              grid: null,
-            },
-          },
-          {
-            player: {
-              id: 414537,
-              name: "B. Schamine",
-              number: 35,
+              id: 30690,
+              name: "Nicolas Fonseca",
+              number: 4,
               pos: "M",
               grid: null,
             },
           },
-        ],
-      },
-      {
-        team: {
-          id: 3700,
-          name: "Always Ready",
-          logo: "https://media.api-sports.io/football/teams/3700.png",
-          colors: {
-            player: {
-              primary: "ffffff",
-              number: "000000",
-              border: "ffffff",
-            },
-            goalkeeper: {
-              primary: "b11313",
-              number: "ffffff",
-              border: "b11313",
-            },
-          },
-        },
-        coach: {
-          id: 2158,
-          name: "F. Torres",
-          photo: "https://media.api-sports.io/football/coachs/2158.png",
-        },
-        formation: "5-3-2",
-        startXI: [
           {
             player: {
-              id: 52561,
-              name: "A. Baroja",
-              number: 1,
+              id: 5985,
+              name: "Ezequiel Centurión",
+              number: 33,
               pos: "G",
-              grid: "1:1",
+              grid: null,
             },
           },
           {
             player: {
-              id: 307545,
-              name: "D. Medina",
+              id: 413144,
+              name: "Daniel Zabala",
+              number: 22,
+              pos: "D",
+              grid: null,
+            },
+          },
+          {
+            player: {
+              id: 316516,
+              name: "Sebastián Boselli",
               number: 2,
               pos: "D",
-              grid: "2:5",
+              grid: null,
             },
           },
           {
             player: {
-              id: 311444,
-              name: "P. Vaca",
-              number: 3,
+              id: 5988,
+              name: "Milton Casco",
+              number: 20,
               pos: "D",
-              grid: "2:4",
+              grid: null,
             },
           },
           {
             player: {
-              id: 304036,
-              name: "L. Caicedo",
-              number: 18,
-              pos: "D",
-              grid: "2:3",
-            },
-          },
-          {
-            player: {
-              id: 65831,
-              name: "M. Suárez",
+              id: 1211,
+              name: "Matías Kranevitter",
               number: 5,
-              pos: "D",
-              grid: "2:2",
-            },
-          },
-          {
-            player: {
-              id: 16313,
-              name: "J. Carabalí",
-              number: 14,
-              pos: "D",
-              grid: "2:1",
-            },
-          },
-          {
-            player: {
-              id: 404870,
-              name: "R. Matheus",
-              number: 21,
-              pos: "M",
-              grid: "3:3",
-            },
-          },
-          {
-            player: {
-              id: 354347,
-              name: "H. Cuellar",
-              number: 13,
-              pos: "M",
-              grid: "3:2",
-            },
-          },
-          {
-            player: {
-              id: 65978,
-              name: "A. Terrazas",
-              number: 10,
-              pos: "M",
-              grid: "3:1",
-            },
-          },
-          {
-            player: {
-              id: 406329,
-              name: "D. Rodrígues",
-              number: 11,
-              pos: "F",
-              grid: "4:2",
-            },
-          },
-          {
-            player: {
-              id: 66441,
-              name: "Wesley da Silva",
-              number: 9,
-              pos: "F",
-              grid: "4:1",
-            },
-          },
-        ],
-        substitutes: [
-          {
-            player: {
-              id: 35986,
-              name: "A. Del Valle",
-              number: 8,
-              pos: "F",
-              grid: null,
-            },
-          },
-          {
-            player: {
-              id: 65664,
-              name: "J. Herrera",
-              number: 7,
               pos: "M",
               grid: null,
             },
           },
           {
             player: {
-              id: 191855,
-              name: "J. Martínes",
-              number: 27,
-              pos: "F",
-              grid: null,
-            },
-          },
-          {
-            player: {
-              id: 265923,
-              name: "Alexandro Zenteno",
+              id: 449249,
+              name: "Franco Mastantuono",
               number: 30,
               pos: "M",
               grid: null,
@@ -931,207 +854,297 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 329004,
-              name: "J. Briceño",
-              number: 19,
-              pos: "F",
-              grid: null,
-            },
-          },
-          {
-            player: {
-              id: 406889,
-              name: "A. Alanoca",
-              number: 38,
+              id: 13402,
+              name: "Agustín Palavecino",
+              number: 8,
               pos: "M",
               grid: null,
             },
           },
+        ],
+        coach: {
+          id: 5345,
+          name: "M. Demichelis",
+          photo: "https://media.api-sports.io/football/coachs/5345.png",
+        },
+      },
+      {
+        team: {
+          id: 451,
+          name: "Boca Juniors",
+          logo: "https://media.api-sports.io/football/teams/451.png",
+          colors: null,
+        },
+        formation: "4-3-1-2",
+        startXI: [
           {
             player: {
-              id: 406304,
-              name: "W. Flores",
-              number: 15,
-              pos: "F",
-              grid: null,
-            },
-          },
-          {
-            player: {
-              id: 404942,
-              name: "E. Rodriguez",
-              number: 99,
+              id: 884,
+              name: "Sergio Romero",
+              number: 1,
               pos: "G",
-              grid: null,
+              grid: "1:1",
             },
           },
           {
             player: {
-              id: 394619,
-              name: "M. Galindo",
-              number: 25,
-              pos: "M",
-              grid: null,
+              id: 2419,
+              name: "Luis Advíncula",
+              number: 17,
+              pos: "D",
+              grid: "2:4",
             },
           },
           {
             player: {
-              id: 307037,
-              name: "C. Abastoflor",
-              number: 31,
-              pos: "F",
-              grid: null,
+              id: 51599,
+              name: "Cristian Lema",
+              number: 2,
+              pos: "D",
+              grid: "2:3",
             },
           },
           {
             player: {
-              id: 354227,
-              name: "E. Taborga",
+              id: 890,
+              name: "Marcos Rojo",
               number: 6,
+              pos: "D",
+              grid: "2:2",
+            },
+          },
+          {
+            player: {
+              id: 289444,
+              name: "Lautaro Blanco",
+              number: 23,
+              pos: "D",
+              grid: "2:1",
+            },
+          },
+          {
+            player: {
+              id: 392734,
+              name: "Jabes Saralegui",
+              number: 47,
+              pos: "M",
+              grid: "3:3",
+            },
+          },
+          {
+            player: {
+              id: 237087,
+              name: "Ezequiel Fernández",
+              number: 21,
+              pos: "M",
+              grid: "3:2",
+            },
+          },
+          {
+            player: {
+              id: 5916,
+              name: "Pol Fernández",
+              number: 8,
+              pos: "M",
+              grid: "3:1",
+            },
+          },
+          {
+            player: {
+              id: 288707,
+              name: "Kevin Zenón",
+              number: 22,
+              pos: "M",
+              grid: "4:1",
+            },
+          },
+          {
+            player: {
+              id: 274,
+              name: "Edinson Cavani",
+              number: 10,
+              pos: "F",
+              grid: "5:2",
+            },
+          },
+          {
+            player: {
+              id: 6327,
+              name: "Miguel Merentiel",
+              number: 16,
+              pos: "F",
+              grid: "5:1",
+            },
+          },
+        ],
+        substitutes: [
+          {
+            player: {
+              id: 6082,
+              name: "Nicolás Figal",
+              number: 4,
               pos: "D",
               grid: null,
             },
           },
           {
             player: {
-              id: 394618,
-              name: "M. Paniagua",
-              number: 40,
+              id: 2478,
+              name: "Darío Benedetto",
+              number: 9,
               pos: "F",
               grid: null,
             },
           },
+          {
+            player: {
+              id: 5972,
+              name: "Jorman Campuzano",
+              number: 49,
+              pos: "M",
+              grid: null,
+            },
+          },
+          {
+            player: {
+              id: 363393,
+              name: "Luca Langoni",
+              number: 14,
+              pos: "F",
+              grid: null,
+            },
+          },
+          {
+            player: {
+              id: 177230,
+              name: "Leandro Brey",
+              number: 12,
+              pos: "G",
+              grid: null,
+            },
+          },
+          {
+            player: {
+              id: 5963,
+              name: "Frank Fabra",
+              number: 18,
+              pos: "D",
+              grid: null,
+            },
+          },
+          {
+            player: {
+              id: 369412,
+              name: "Lautaro Di Lollo",
+              number: 40,
+              pos: "D",
+              grid: null,
+            },
+          },
+          {
+            player: {
+              id: 1160,
+              name: "Marcelo Saracchi",
+              number: 3,
+              pos: "D",
+              grid: null,
+            },
+          },
+          {
+            player: {
+              id: 6324,
+              name: "Ezequiel Bullaude",
+              number: 5,
+              pos: "M",
+              grid: null,
+            },
+          },
+          {
+            player: {
+              id: 459876,
+              name: "Milton Delgado",
+              number: 43,
+              pos: "M",
+              grid: null,
+            },
+          },
+          {
+            player: {
+              id: 6189,
+              name: "Norberto Briasco",
+              number: 29,
+              pos: "F",
+              grid: null,
+            },
+          },
+          {
+            player: {
+              id: 323785,
+              name: "Vicente Taborda",
+              number: 39,
+              pos: "M",
+              grid: null,
+            },
+          },
         ],
+        coach: {
+          id: 249,
+          name: "D. Martínez",
+          photo: "https://media.api-sports.io/football/coachs/249.png",
+        },
       },
     ],
     statistics: [
       {
         team: {
-          id: 442,
-          name: "Defensa Y Justicia",
-          logo: "https://media.api-sports.io/football/teams/442.png",
+          id: 435,
+          name: "River Plate",
+          logo: "https://media.api-sports.io/football/teams/435.png",
         },
         statistics: [
           {
             type: "Shots on Goal",
-            value: 4,
+            value: 7,
           },
           {
             type: "Shots off Goal",
-            value: 8,
+            value: 4,
           },
           {
             type: "Total Shots",
-            value: 18,
-          },
-          {
-            type: "Blocked Shots",
-            value: 6,
-          },
-          {
-            type: "Shots insidebox",
             value: 13,
           },
           {
-            type: "Shots outsidebox",
-            value: 5,
-          },
-          {
-            type: "Fouls",
-            value: 15,
-          },
-          {
-            type: "Corner Kicks",
-            value: 3,
-          },
-          {
-            type: "Offsides",
-            value: 1,
-          },
-          {
-            type: "Ball Possession",
-            value: "59%",
-          },
-          {
-            type: "Yellow Cards",
-            value: 4,
-          },
-          {
-            type: "Red Cards",
-            value: null,
-          },
-          {
-            type: "Goalkeeper Saves",
-            value: 4,
-          },
-          {
-            type: "Total passes",
-            value: 443,
-          },
-          {
-            type: "Passes accurate",
-            value: 366,
-          },
-          {
-            type: "Passes %",
-            value: "83%",
-          },
-          {
-            type: "expected_goals",
-            value: null,
-          },
-        ],
-      },
-      {
-        team: {
-          id: 3700,
-          name: "Always Ready",
-          logo: "https://media.api-sports.io/football/teams/3700.png",
-        },
-        statistics: [
-          {
-            type: "Shots on Goal",
-            value: 5,
-          },
-          {
-            type: "Shots off Goal",
-            value: 3,
-          },
-          {
-            type: "Total Shots",
-            value: 9,
-          },
-          {
             type: "Blocked Shots",
-            value: 1,
+            value: 2,
           },
           {
             type: "Shots insidebox",
-            value: 5,
+            value: 7,
           },
           {
             type: "Shots outsidebox",
-            value: 4,
+            value: 6,
           },
           {
             type: "Fouls",
-            value: 11,
+            value: 12,
           },
           {
             type: "Corner Kicks",
-            value: 3,
+            value: 4,
           },
           {
             type: "Offsides",
-            value: 1,
+            value: 0,
           },
           {
             type: "Ball Possession",
-            value: "41%",
+            value: "52%",
           },
           {
             type: "Yellow Cards",
-            value: 5,
+            value: 6,
           },
           {
             type: "Red Cards",
@@ -1139,15 +1152,15 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             type: "Goalkeeper Saves",
-            value: 3,
+            value: 2,
           },
           {
             type: "Total passes",
-            value: 299,
+            value: 334,
           },
           {
             type: "Passes accurate",
-            value: 233,
+            value: 262,
           },
           {
             type: "Passes %",
@@ -1159,30 +1172,107 @@ export const MATCH_BYID_RESPONSE = [
           },
         ],
       },
+      {
+        team: {
+          id: 451,
+          name: "Boca Juniors",
+          logo: "https://media.api-sports.io/football/teams/451.png",
+        },
+        statistics: [
+          {
+            type: "Shots on Goal",
+            value: 5,
+          },
+          {
+            type: "Shots off Goal",
+            value: 6,
+          },
+          {
+            type: "Total Shots",
+            value: 12,
+          },
+          {
+            type: "Blocked Shots",
+            value: 1,
+          },
+          {
+            type: "Shots insidebox",
+            value: 7,
+          },
+          {
+            type: "Shots outsidebox",
+            value: 5,
+          },
+          {
+            type: "Fouls",
+            value: 15,
+          },
+          {
+            type: "Corner Kicks",
+            value: 4,
+          },
+          {
+            type: "Offsides",
+            value: 2,
+          },
+          {
+            type: "Ball Possession",
+            value: "48%",
+          },
+          {
+            type: "Yellow Cards",
+            value: 5,
+          },
+          {
+            type: "Red Cards",
+            value: null,
+          },
+          {
+            type: "Goalkeeper Saves",
+            value: 5,
+          },
+          {
+            type: "Total passes",
+            value: 314,
+          },
+          {
+            type: "Passes accurate",
+            value: 254,
+          },
+          {
+            type: "Passes %",
+            value: "81%",
+          },
+          {
+            type: "expected_goals",
+            value: null,
+          },
+        ],
+      },
     ],
     players: [
       {
         team: {
-          id: 442,
-          name: "Defensa Y Justicia",
-          logo: "https://media.api-sports.io/football/teams/442.png",
-          update: "2024-04-13T04:05:26+00:00",
+          id: 435,
+          name: "River Plate",
+          logo: "https://media.api-sports.io/football/teams/435.png",
+          update: "2024-04-22T00:30:53+00:00",
         },
         players: [
           {
             player: {
-              id: 51822,
-              name: "Cristopher Fiermarín",
-              photo: "https://media.api-sports.io/football/players/51822.png",
+              id: 2463,
+              name: "Franco Armani",
+              photo: "https://media.api-sports.io/football/players/2463.png",
             },
             statistics: [
               {
                 games: {
-                  minutes: 90,
-                  number: 22,
+                  minutes: 98,
+                  number: 1,
                   position: "G",
-                  rating: "7.2",
-                  captain: false,
+                  rating: "6.6",
+                  captain: true,
                   substitute: false,
                 },
                 offsides: null,
@@ -1192,14 +1282,14 @@ export const MATCH_BYID_RESPONSE = [
                 },
                 goals: {
                   total: null,
-                  conceded: 1,
+                  conceded: 3,
                   assists: null,
-                  saves: 4,
+                  saves: 2,
                 },
                 passes: {
-                  total: 26,
+                  total: 17,
                   key: null,
-                  accuracy: "22",
+                  accuracy: "15",
                 },
                 tackles: {
                   total: null,
@@ -1207,8 +1297,8 @@ export const MATCH_BYID_RESPONSE = [
                   interceptions: null,
                 },
                 duels: {
-                  total: null,
-                  won: null,
+                  total: 2,
+                  won: 2,
                 },
                 dribbles: {
                   attempts: null,
@@ -1216,11 +1306,11 @@ export const MATCH_BYID_RESPONSE = [
                   past: null,
                 },
                 fouls: {
-                  drawn: null,
+                  drawn: 1,
                   committed: null,
                 },
                 cards: {
-                  yellow: 1,
+                  yellow: 0,
                   red: 0,
                 },
                 penalty: {
@@ -1235,49 +1325,49 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 5938,
-              name: "Nicolás Tripichio",
-              photo: "https://media.api-sports.io/football/players/5938.png",
+              id: 6602,
+              name: "Marcelo Herrera",
+              photo: "https://media.api-sports.io/football/players/6602.png",
             },
             statistics: [
               {
                 games: {
-                  minutes: 90,
-                  number: 4,
+                  minutes: 80,
+                  number: 15,
                   position: "D",
-                  rating: "7.2",
-                  captain: true,
+                  rating: "6.5",
+                  captain: false,
                   substitute: false,
                 },
-                offsides: 1,
+                offsides: null,
                 shots: {
-                  total: null,
-                  on: null,
+                  total: 2,
+                  on: 1,
                 },
                 goals: {
                   total: null,
                   conceded: 0,
-                  assists: 1,
+                  assists: null,
                   saves: null,
                 },
                 passes: {
-                  total: 43,
-                  key: 2,
-                  accuracy: "36",
+                  total: 27,
+                  key: null,
+                  accuracy: "14",
                 },
                 tackles: {
-                  total: 5,
+                  total: 2,
                   blocks: null,
-                  interceptions: 2,
+                  interceptions: 1,
                 },
                 duels: {
-                  total: 9,
-                  won: 7,
+                  total: 6,
+                  won: 3,
                 },
                 dribbles: {
                   attempts: 2,
                   success: 1,
-                  past: null,
+                  past: 1,
                 },
                 fouls: {
                   drawn: null,
@@ -1299,17 +1389,145 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 409590,
-              name: "Elias Calderon",
-              photo: "https://media.api-sports.io/football/players/409590.png",
+              id: 50875,
+              name: "Leandro González Pírez",
+              photo: "https://media.api-sports.io/football/players/50875.png",
             },
             statistics: [
               {
                 games: {
-                  minutes: 86,
-                  number: 20,
+                  minutes: 98,
+                  number: 14,
                   position: "D",
-                  rating: "6.9",
+                  rating: "6.2",
+                  captain: false,
+                  substitute: false,
+                },
+                offsides: null,
+                shots: {
+                  total: null,
+                  on: null,
+                },
+                goals: {
+                  total: null,
+                  conceded: 0,
+                  assists: null,
+                  saves: null,
+                },
+                passes: {
+                  total: 31,
+                  key: null,
+                  accuracy: "25",
+                },
+                tackles: {
+                  total: 1,
+                  blocks: null,
+                  interceptions: null,
+                },
+                duels: {
+                  total: 7,
+                  won: 2,
+                },
+                dribbles: {
+                  attempts: null,
+                  success: null,
+                  past: 2,
+                },
+                fouls: {
+                  drawn: 1,
+                  committed: null,
+                },
+                cards: {
+                  yellow: 0,
+                  red: 0,
+                },
+                penalty: {
+                  won: null,
+                  commited: null,
+                  scored: 0,
+                  missed: 0,
+                  saved: null,
+                },
+              },
+            ],
+          },
+          {
+            player: {
+              id: 2550,
+              name: "Paulo Díaz",
+              photo: "https://media.api-sports.io/football/players/2550.png",
+            },
+            statistics: [
+              {
+                games: {
+                  minutes: 98,
+                  number: 17,
+                  position: "D",
+                  rating: "8.2",
+                  captain: false,
+                  substitute: false,
+                },
+                offsides: null,
+                shots: {
+                  total: 3,
+                  on: 3,
+                },
+                goals: {
+                  total: 1,
+                  conceded: 0,
+                  assists: null,
+                  saves: null,
+                },
+                passes: {
+                  total: 46,
+                  key: 2,
+                  accuracy: "40",
+                },
+                tackles: {
+                  total: null,
+                  blocks: 1,
+                  interceptions: 3,
+                },
+                duels: {
+                  total: 6,
+                  won: 3,
+                },
+                dribbles: {
+                  attempts: null,
+                  success: null,
+                  past: null,
+                },
+                fouls: {
+                  drawn: null,
+                  committed: null,
+                },
+                cards: {
+                  yellow: 0,
+                  red: 0,
+                },
+                penalty: {
+                  won: null,
+                  commited: null,
+                  scored: 0,
+                  missed: 0,
+                  saved: null,
+                },
+              },
+            ],
+          },
+          {
+            player: {
+              id: 6237,
+              name: "Enzo Díaz",
+              photo: "https://media.api-sports.io/football/players/6237.png",
+            },
+            statistics: [
+              {
+                games: {
+                  minutes: 98,
+                  number: 13,
+                  position: "D",
+                  rating: "6.6",
                   captain: false,
                   substitute: false,
                 },
@@ -1325,26 +1543,26 @@ export const MATCH_BYID_RESPONSE = [
                   saves: null,
                 },
                 passes: {
-                  total: 58,
+                  total: 35,
                   key: null,
-                  accuracy: "50",
+                  accuracy: "28",
                 },
                 tackles: {
-                  total: 2,
-                  blocks: 1,
+                  total: 3,
+                  blocks: null,
                   interceptions: null,
                 },
                 duels: {
-                  total: 5,
-                  won: 2,
+                  total: 9,
+                  won: 5,
                 },
                 dribbles: {
-                  attempts: null,
+                  attempts: 1,
                   success: null,
-                  past: null,
+                  past: 1,
                 },
                 fouls: {
-                  drawn: null,
+                  drawn: 1,
                   committed: 2,
                 },
                 cards: {
@@ -1363,81 +1581,17 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 46940,
-              name: "Esteban Burgos",
-              photo: "https://media.api-sports.io/football/players/46940.png",
+              id: 5997,
+              name: "Nacho Fernández",
+              photo: "https://media.api-sports.io/football/players/5997.png",
             },
             statistics: [
               {
                 games: {
-                  minutes: 90,
-                  number: 6,
-                  position: "D",
-                  rating: "6.9",
-                  captain: false,
-                  substitute: false,
-                },
-                offsides: null,
-                shots: {
-                  total: null,
-                  on: null,
-                },
-                goals: {
-                  total: null,
-                  conceded: 0,
-                  assists: null,
-                  saves: null,
-                },
-                passes: {
-                  total: 62,
-                  key: null,
-                  accuracy: "57",
-                },
-                tackles: {
-                  total: null,
-                  blocks: null,
-                  interceptions: 1,
-                },
-                duels: {
-                  total: 1,
-                  won: 1,
-                },
-                dribbles: {
-                  attempts: null,
-                  success: null,
-                  past: null,
-                },
-                fouls: {
-                  drawn: null,
-                  committed: null,
-                },
-                cards: {
-                  yellow: 0,
-                  red: 0,
-                },
-                penalty: {
-                  won: null,
-                  commited: null,
-                  scored: 0,
-                  missed: 0,
-                  saved: null,
-                },
-              },
-            ],
-          },
-          {
-            player: {
-              id: 6198,
-              name: "Darío Cáceres",
-              photo: "https://media.api-sports.io/football/players/6198.png",
-            },
-            statistics: [
-              {
-                games: {
-                  minutes: 90,
+                  minutes: 60,
                   number: 26,
-                  position: "D",
-                  rating: "7.2",
+                  position: "M",
+                  rating: "6.2",
                   captain: false,
                   substitute: false,
                 },
@@ -1453,30 +1607,30 @@ export const MATCH_BYID_RESPONSE = [
                   saves: null,
                 },
                 passes: {
-                  total: 54,
-                  key: null,
-                  accuracy: "41",
+                  total: 21,
+                  key: 1,
+                  accuracy: "14",
                 },
                 tackles: {
-                  total: 4,
+                  total: 2,
                   blocks: null,
-                  interceptions: 2,
+                  interceptions: null,
                 },
                 duels: {
-                  total: 10,
-                  won: 8,
+                  total: 7,
+                  won: 3,
                 },
                 dribbles: {
                   attempts: 1,
                   success: null,
-                  past: null,
+                  past: 2,
                 },
                 fouls: {
                   drawn: null,
-                  committed: 1,
+                  committed: 2,
                 },
                 cards: {
-                  yellow: 0,
+                  yellow: 1,
                   red: 0,
                 },
                 penalty: {
@@ -1491,17 +1645,17 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 5917,
-              name: "Julián López",
-              photo: "https://media.api-sports.io/football/players/5917.png",
+              id: 6519,
+              name: "Rodrigo Villagra",
+              photo: "https://media.api-sports.io/football/players/6519.png",
             },
             statistics: [
               {
                 games: {
-                  minutes: 63,
-                  number: 8,
+                  minutes: 80,
+                  number: 23,
                   position: "M",
-                  rating: "6.3",
+                  rating: "6.2",
                   captain: false,
                   substitute: false,
                 },
@@ -1519,6 +1673,326 @@ export const MATCH_BYID_RESPONSE = [
                 passes: {
                   total: 29,
                   key: null,
+                  accuracy: "23",
+                },
+                tackles: {
+                  total: 1,
+                  blocks: null,
+                  interceptions: null,
+                },
+                duels: {
+                  total: 7,
+                  won: 4,
+                },
+                dribbles: {
+                  attempts: null,
+                  success: null,
+                  past: 1,
+                },
+                fouls: {
+                  drawn: 1,
+                  committed: 2,
+                },
+                cards: {
+                  yellow: 1,
+                  red: 0,
+                },
+                penalty: {
+                  won: null,
+                  commited: null,
+                  scored: 0,
+                  missed: 0,
+                  saved: null,
+                },
+              },
+            ],
+          },
+          {
+            player: {
+              id: 6028,
+              name: "Rodrigo Aliendro",
+              photo: "https://media.api-sports.io/football/players/6028.png",
+            },
+            statistics: [
+              {
+                games: {
+                  minutes: 70,
+                  number: 29,
+                  position: "M",
+                  rating: "6.9",
+                  captain: false,
+                  substitute: false,
+                },
+                offsides: null,
+                shots: {
+                  total: null,
+                  on: null,
+                },
+                goals: {
+                  total: null,
+                  conceded: 0,
+                  assists: null,
+                  saves: null,
+                },
+                passes: {
+                  total: 28,
+                  key: null,
+                  accuracy: "24",
+                },
+                tackles: {
+                  total: 5,
+                  blocks: null,
+                  interceptions: null,
+                },
+                duels: {
+                  total: 8,
+                  won: 6,
+                },
+                dribbles: {
+                  attempts: null,
+                  success: null,
+                  past: null,
+                },
+                fouls: {
+                  drawn: 1,
+                  committed: 1,
+                },
+                cards: {
+                  yellow: 0,
+                  red: 0,
+                },
+                penalty: {
+                  won: null,
+                  commited: null,
+                  scored: 0,
+                  missed: 0,
+                  saved: null,
+                },
+              },
+            ],
+          },
+          {
+            player: {
+              id: 414385,
+              name: "Claudio Echeverri",
+              photo: "https://media.api-sports.io/football/players/414385.png",
+            },
+            statistics: [
+              {
+                games: {
+                  minutes: 60,
+                  number: 19,
+                  position: "M",
+                  rating: "7.3",
+                  captain: false,
+                  substitute: false,
+                },
+                offsides: null,
+                shots: {
+                  total: null,
+                  on: null,
+                },
+                goals: {
+                  total: null,
+                  conceded: 0,
+                  assists: 1,
+                  saves: null,
+                },
+                passes: {
+                  total: 13,
+                  key: 2,
+                  accuracy: "12",
+                },
+                tackles: {
+                  total: null,
+                  blocks: null,
+                  interceptions: null,
+                },
+                duels: {
+                  total: 8,
+                  won: 6,
+                },
+                dribbles: {
+                  attempts: 4,
+                  success: 4,
+                  past: null,
+                },
+                fouls: {
+                  drawn: 2,
+                  committed: null,
+                },
+                cards: {
+                  yellow: 1,
+                  red: 0,
+                },
+                penalty: {
+                  won: null,
+                  commited: null,
+                  scored: 0,
+                  missed: 0,
+                  saved: null,
+                },
+              },
+            ],
+          },
+          {
+            player: {
+              id: 9933,
+              name: "Miguel Borja",
+              photo: "https://media.api-sports.io/football/players/9933.png",
+            },
+            statistics: [
+              {
+                games: {
+                  minutes: 98,
+                  number: 9,
+                  position: "F",
+                  rating: "7.2",
+                  captain: false,
+                  substitute: false,
+                },
+                offsides: null,
+                shots: {
+                  total: 1,
+                  on: 1,
+                },
+                goals: {
+                  total: 1,
+                  conceded: 0,
+                  assists: null,
+                  saves: null,
+                },
+                passes: {
+                  total: 6,
+                  key: null,
+                  accuracy: "3",
+                },
+                tackles: {
+                  total: 1,
+                  blocks: null,
+                  interceptions: null,
+                },
+                duels: {
+                  total: 4,
+                  won: 1,
+                },
+                dribbles: {
+                  attempts: null,
+                  success: null,
+                  past: 1,
+                },
+                fouls: {
+                  drawn: null,
+                  committed: 1,
+                },
+                cards: {
+                  yellow: 1,
+                  red: 0,
+                },
+                penalty: {
+                  won: null,
+                  commited: null,
+                  scored: 0,
+                  missed: 0,
+                  saved: null,
+                },
+              },
+            ],
+          },
+          {
+            player: {
+              id: 214,
+              name: "Facundo Colidio",
+              photo: "https://media.api-sports.io/football/players/214.png",
+            },
+            statistics: [
+              {
+                games: {
+                  minutes: 98,
+                  number: 11,
+                  position: "F",
+                  rating: "6.5",
+                  captain: false,
+                  substitute: false,
+                },
+                offsides: null,
+                shots: {
+                  total: null,
+                  on: null,
+                },
+                goals: {
+                  total: null,
+                  conceded: 0,
+                  assists: null,
+                  saves: null,
+                },
+                passes: {
+                  total: 16,
+                  key: null,
+                  accuracy: "9",
+                },
+                tackles: {
+                  total: null,
+                  blocks: null,
+                  interceptions: null,
+                },
+                duels: {
+                  total: 8,
+                  won: 1,
+                },
+                dribbles: {
+                  attempts: 1,
+                  success: null,
+                  past: null,
+                },
+                fouls: {
+                  drawn: 1,
+                  committed: 2,
+                },
+                cards: {
+                  yellow: 1,
+                  red: 0,
+                },
+                penalty: {
+                  won: null,
+                  commited: null,
+                  scored: 0,
+                  missed: 0,
+                  saved: null,
+                },
+              },
+            ],
+          },
+          {
+            player: {
+              id: 2473,
+              name: "Manuel Lanzini",
+              photo: "https://media.api-sports.io/football/players/2473.png",
+            },
+            statistics: [
+              {
+                games: {
+                  minutes: 38,
+                  number: 10,
+                  position: "M",
+                  rating: "6.9",
+                  captain: false,
+                  substitute: true,
+                },
+                offsides: null,
+                shots: {
+                  total: 1,
+                  on: 1,
+                },
+                goals: {
+                  total: null,
+                  conceded: 0,
+                  assists: null,
+                  saves: null,
+                },
+                passes: {
+                  total: 30,
+                  key: 1,
                   accuracy: "25",
                 },
                 tackles: {
@@ -1527,84 +2001,20 @@ export const MATCH_BYID_RESPONSE = [
                   interceptions: null,
                 },
                 duels: {
-                  total: 10,
+                  total: 3,
                   won: 3,
                 },
                 dribbles: {
-                  attempts: 3,
-                  success: 1,
-                  past: 3,
-                },
-                fouls: {
-                  drawn: null,
-                  committed: 2,
-                },
-                cards: {
-                  yellow: 1,
-                  red: 0,
-                },
-                penalty: {
-                  won: null,
-                  commited: null,
-                  scored: 0,
-                  missed: 0,
-                  saved: null,
-                },
-              },
-            ],
-          },
-          {
-            player: {
-              id: 5911,
-              name: "Alexis Soto",
-              photo: "https://media.api-sports.io/football/players/5911.png",
-            },
-            statistics: [
-              {
-                games: {
-                  minutes: 79,
-                  number: 3,
-                  position: "M",
-                  rating: "7.5",
-                  captain: false,
-                  substitute: false,
-                },
-                offsides: null,
-                shots: {
-                  total: 1,
-                  on: null,
-                },
-                goals: {
-                  total: null,
-                  conceded: 0,
-                  assists: null,
-                  saves: null,
-                },
-                passes: {
-                  total: 49,
-                  key: 2,
-                  accuracy: "42",
-                },
-                tackles: {
-                  total: 2,
-                  blocks: null,
-                  interceptions: 1,
-                },
-                duels: {
-                  total: 6,
-                  won: 4,
-                },
-                dribbles: {
                   attempts: null,
                   success: null,
-                  past: 1,
+                  past: null,
                 },
                 fouls: {
-                  drawn: null,
-                  committed: 1,
+                  drawn: 2,
+                  committed: null,
                 },
                 cards: {
-                  yellow: 1,
+                  yellow: 0,
                   red: 0,
                 },
                 penalty: {
@@ -1619,83 +2029,19 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 323847,
-              name: "Nicolas Palavecino",
-              photo: "https://media.api-sports.io/football/players/323847.png",
+              id: 50880,
+              name: "Esequiel Barco",
+              photo: "https://media.api-sports.io/football/players/50880.png",
             },
             statistics: [
               {
                 games: {
-                  minutes: 79,
-                  number: 33,
+                  minutes: 38,
+                  number: 21,
                   position: "M",
                   rating: "6.9",
                   captain: false,
-                  substitute: false,
-                },
-                offsides: null,
-                shots: {
-                  total: 1,
-                  on: 1,
-                },
-                goals: {
-                  total: null,
-                  conceded: 0,
-                  assists: null,
-                  saves: null,
-                },
-                passes: {
-                  total: 13,
-                  key: null,
-                  accuracy: "9",
-                },
-                tackles: {
-                  total: 3,
-                  blocks: null,
-                  interceptions: null,
-                },
-                duels: {
-                  total: 13,
-                  won: 5,
-                },
-                dribbles: {
-                  attempts: 4,
-                  success: 1,
-                  past: 1,
-                },
-                fouls: {
-                  drawn: 1,
-                  committed: 2,
-                },
-                cards: {
-                  yellow: 0,
-                  red: 0,
-                },
-                penalty: {
-                  won: null,
-                  commited: null,
-                  scored: 0,
-                  missed: 0,
-                  saved: null,
-                },
-              },
-            ],
-          },
-          {
-            player: {
-              id: 70730,
-              name: "Rodrigo Bogarín",
-              photo: "https://media.api-sports.io/football/players/70730.png",
-            },
-            statistics: [
-              {
-                games: {
-                  minutes: 45,
-                  number: 10,
-                  position: "M",
-                  rating: "7.2",
-                  captain: false,
-                  substitute: false,
+                  substitute: true,
                 },
                 offsides: null,
                 shots: {
@@ -1709,26 +2055,26 @@ export const MATCH_BYID_RESPONSE = [
                   saves: null,
                 },
                 passes: {
-                  total: 24,
-                  key: 2,
-                  accuracy: "19",
+                  total: 23,
+                  key: 1,
+                  accuracy: "20",
                 },
                 tackles: {
-                  total: 1,
+                  total: null,
                   blocks: null,
                   interceptions: null,
                 },
                 duels: {
-                  total: 4,
+                  total: 2,
                   won: 2,
                 },
                 dribbles: {
-                  attempts: 2,
-                  success: 1,
+                  attempts: null,
+                  success: null,
                   past: null,
                 },
                 fouls: {
-                  drawn: null,
+                  drawn: 2,
                   committed: null,
                 },
                 cards: {
@@ -1747,151 +2093,23 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 58668,
-              name: "Luciano Herrera",
-              photo: "https://media.api-sports.io/football/players/58668.png",
+              id: 194906,
+              name: "Pablo Solari",
+              photo: "https://media.api-sports.io/football/players/194906.png",
             },
             statistics: [
               {
                 games: {
-                  minutes: 90,
-                  number: 27,
-                  position: "M",
-                  rating: "7.5",
-                  captain: false,
-                  substitute: false,
-                },
-                offsides: null,
-                shots: {
-                  total: 2,
-                  on: 1,
-                },
-                goals: {
-                  total: null,
-                  conceded: 0,
-                  assists: null,
-                  saves: null,
-                },
-                passes: {
-                  total: 22,
-                  key: 4,
-                  accuracy: "15",
-                },
-                tackles: {
-                  total: 5,
-                  blocks: null,
-                  interceptions: null,
-                },
-                duels: {
-                  total: 19,
-                  won: 10,
-                },
-                dribbles: {
-                  attempts: 2,
-                  success: null,
-                  past: 3,
-                },
-                fouls: {
-                  drawn: 3,
-                  committed: 3,
-                },
-                cards: {
-                  yellow: 0,
-                  red: 0,
-                },
-                penalty: {
-                  won: null,
-                  commited: null,
-                  scored: 0,
-                  missed: 0,
-                  saved: null,
-                },
-              },
-            ],
-          },
-          {
-            player: {
-              id: 5952,
-              name: "Nicolás Fernández",
-              photo: "https://media.api-sports.io/football/players/5952.png",
-            },
-            statistics: [
-              {
-                games: {
-                  minutes: 90,
-                  number: 29,
+                  minutes: 28,
+                  number: 36,
                   position: "F",
-                  rating: "7",
-                  captain: false,
-                  substitute: false,
-                },
-                offsides: null,
-                shots: {
-                  total: 4,
-                  on: 1,
-                },
-                goals: {
-                  total: 1,
-                  conceded: 0,
-                  assists: null,
-                  saves: null,
-                },
-                passes: {
-                  total: 19,
-                  key: 1,
-                  accuracy: "16",
-                },
-                tackles: {
-                  total: 1,
-                  blocks: null,
-                  interceptions: null,
-                },
-                duels: {
-                  total: 12,
-                  won: 6,
-                },
-                dribbles: {
-                  attempts: 1,
-                  success: 1,
-                  past: null,
-                },
-                fouls: {
-                  drawn: 4,
-                  committed: 1,
-                },
-                cards: {
-                  yellow: 0,
-                  red: 0,
-                },
-                penalty: {
-                  won: null,
-                  commited: null,
-                  scored: 0,
-                  missed: 0,
-                  saved: null,
-                },
-              },
-            ],
-          },
-          {
-            player: {
-              id: 325250,
-              name: "Kevin Lopez",
-              photo: "https://media.api-sports.io/football/players/325250.png",
-            },
-            statistics: [
-              {
-                games: {
-                  minutes: 45,
-                  number: 30,
-                  position: "M",
-                  rating: "6.5",
+                  rating: "6.6",
                   captain: false,
                   substitute: true,
                 },
                 offsides: null,
                 shots: {
-                  total: null,
+                  total: 1,
                   on: null,
                 },
                 goals: {
@@ -1901,9 +2119,9 @@ export const MATCH_BYID_RESPONSE = [
                   saves: null,
                 },
                 passes: {
-                  total: 22,
-                  key: 1,
-                  accuracy: "17",
+                  total: 1,
+                  key: null,
+                  accuracy: null,
                 },
                 tackles: {
                   total: 1,
@@ -1911,8 +2129,8 @@ export const MATCH_BYID_RESPONSE = [
                   interceptions: null,
                 },
                 duels: {
-                  total: 6,
-                  won: 2,
+                  total: 4,
+                  won: 3,
                 },
                 dribbles: {
                   attempts: 1,
@@ -1920,8 +2138,8 @@ export const MATCH_BYID_RESPONSE = [
                   past: null,
                 },
                 fouls: {
-                  drawn: 1,
-                  committed: 2,
+                  drawn: 2,
+                  committed: null,
                 },
                 cards: {
                   yellow: 1,
@@ -1939,208 +2157,16 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 295508,
-              name: "Ezequiel Cannavo",
-              photo: "https://media.api-sports.io/football/players/295508.png",
+              id: 237143,
+              name: "Santiago Simón",
+              photo: "https://media.api-sports.io/football/players/237143.png",
             },
             statistics: [
               {
                 games: {
-                  minutes: 27,
-                  number: 14,
-                  position: "D",
-                  rating: "6.6",
-                  captain: false,
-                  substitute: true,
-                },
-                offsides: null,
-                shots: {
-                  total: 1,
-                  on: null,
-                },
-                goals: {
-                  total: null,
-                  conceded: 0,
-                  assists: null,
-                  saves: null,
-                },
-                passes: {
-                  total: 5,
-                  key: null,
-                  accuracy: "4",
-                },
-                tackles: {
-                  total: 3,
-                  blocks: null,
-                  interceptions: null,
-                },
-                duels: {
-                  total: 5,
-                  won: 4,
-                },
-                dribbles: {
-                  attempts: 1,
-                  success: null,
-                  past: null,
-                },
-                fouls: {
-                  drawn: null,
-                  committed: null,
-                },
-                cards: {
-                  yellow: 0,
-                  red: 0,
-                },
-                penalty: {
-                  won: null,
-                  commited: null,
-                  scored: 0,
-                  missed: 0,
-                  saved: null,
-                },
-              },
-            ],
-          },
-          {
-            player: {
-              id: 6577,
-              name: "Gabriel Alanis",
-              photo: "https://media.api-sports.io/football/players/6577.png",
-            },
-            statistics: [
-              {
-                games: {
-                  minutes: 11,
-                  number: 17,
+                  minutes: 18,
+                  number: 31,
                   position: "M",
-                  rating: "6.6",
-                  captain: false,
-                  substitute: true,
-                },
-                offsides: null,
-                shots: {
-                  total: null,
-                  on: null,
-                },
-                goals: {
-                  total: null,
-                  conceded: 0,
-                  assists: null,
-                  saves: null,
-                },
-                passes: {
-                  total: 8,
-                  key: null,
-                  accuracy: "5",
-                },
-                tackles: {
-                  total: 1,
-                  blocks: null,
-                  interceptions: null,
-                },
-                duels: {
-                  total: 1,
-                  won: 1,
-                },
-                dribbles: {
-                  attempts: null,
-                  success: null,
-                  past: null,
-                },
-                fouls: {
-                  drawn: null,
-                  committed: null,
-                },
-                cards: {
-                  yellow: 0,
-                  red: 0,
-                },
-                penalty: {
-                  won: null,
-                  commited: null,
-                  scored: 0,
-                  missed: 0,
-                  saved: null,
-                },
-              },
-            ],
-          },
-          {
-            player: {
-              id: 133990,
-              name: "Yorman Zapata",
-              photo: "https://media.api-sports.io/football/players/133990.png",
-            },
-            statistics: [
-              {
-                games: {
-                  minutes: 11,
-                  number: 7,
-                  position: "F",
-                  rating: "6.7",
-                  captain: false,
-                  substitute: true,
-                },
-                offsides: null,
-                shots: {
-                  total: null,
-                  on: null,
-                },
-                goals: {
-                  total: null,
-                  conceded: 0,
-                  assists: null,
-                  saves: null,
-                },
-                passes: {
-                  total: 6,
-                  key: null,
-                  accuracy: "5",
-                },
-                tackles: {
-                  total: null,
-                  blocks: null,
-                  interceptions: null,
-                },
-                duels: {
-                  total: 1,
-                  won: 1,
-                },
-                dribbles: {
-                  attempts: null,
-                  success: null,
-                  past: null,
-                },
-                fouls: {
-                  drawn: 1,
-                  committed: null,
-                },
-                cards: {
-                  yellow: 0,
-                  red: 0,
-                },
-                penalty: {
-                  won: null,
-                  commited: null,
-                  scored: 0,
-                  missed: 0,
-                  saved: null,
-                },
-              },
-            ],
-          },
-          {
-            player: {
-              id: 6627,
-              name: "Nicolás Blandi",
-              photo: "https://media.api-sports.io/football/players/6627.png",
-            },
-            statistics: [
-              {
-                games: {
-                  minutes: 10,
-                  number: 37,
-                  position: "F",
                   rating: "6.3",
                   captain: false,
                   substitute: true,
@@ -2167,7 +2193,7 @@ export const MATCH_BYID_RESPONSE = [
                   interceptions: null,
                 },
                 duels: {
-                  total: null,
+                  total: 1,
                   won: null,
                 },
                 dribbles: {
@@ -2195,15 +2221,79 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 5984,
-              name: "Enrique Bologna",
-              photo: "https://media.api-sports.io/football/players/5984.png",
+              id: 30690,
+              name: "Nicolas Fonseca",
+              photo: "https://media.api-sports.io/football/players/30690.png",
+            },
+            statistics: [
+              {
+                games: {
+                  minutes: 18,
+                  number: 4,
+                  position: "M",
+                  rating: "6.7",
+                  captain: false,
+                  substitute: true,
+                },
+                offsides: null,
+                shots: {
+                  total: null,
+                  on: null,
+                },
+                goals: {
+                  total: null,
+                  conceded: 0,
+                  assists: null,
+                  saves: null,
+                },
+                passes: {
+                  total: 8,
+                  key: null,
+                  accuracy: "7",
+                },
+                tackles: {
+                  total: null,
+                  blocks: null,
+                  interceptions: null,
+                },
+                duels: {
+                  total: 1,
+                  won: null,
+                },
+                dribbles: {
+                  attempts: null,
+                  success: null,
+                  past: null,
+                },
+                fouls: {
+                  drawn: null,
+                  committed: 1,
+                },
+                cards: {
+                  yellow: 0,
+                  red: 0,
+                },
+                penalty: {
+                  won: null,
+                  commited: null,
+                  scored: 0,
+                  missed: 0,
+                  saved: null,
+                },
+              },
+            ],
+          },
+          {
+            player: {
+              id: 5985,
+              name: "Ezequiel Centurión",
+              photo: "https://media.api-sports.io/football/players/5985.png",
             },
             statistics: [
               {
                 games: {
                   minutes: null,
-                  number: 23,
+                  number: 33,
                   position: "G",
                   rating: null,
                   captain: false,
@@ -2259,15 +2349,15 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 392041,
-              name: "Esteban Lucero",
-              photo: "https://media.api-sports.io/football/players/392041.png",
+              id: 413144,
+              name: "Daniel Zabala",
+              photo: "https://media.api-sports.io/football/players/413144.png",
             },
             statistics: [
               {
                 games: {
                   minutes: null,
-                  number: 13,
+                  number: 22,
                   position: "D",
                   rating: null,
                   captain: false,
@@ -2323,15 +2413,15 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 414391,
-              name: "Ulises Giménez",
-              photo: "https://media.api-sports.io/football/players/414391.png",
+              id: 316516,
+              name: "Sebastián Boselli",
+              photo: "https://media.api-sports.io/football/players/316516.png",
             },
             statistics: [
               {
                 games: {
                   minutes: null,
-                  number: 40,
+                  number: 2,
                   position: "D",
                   rating: null,
                   captain: false,
@@ -2387,15 +2477,79 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 414537,
-              name: "Benjamin Schamine",
-              photo: "https://media.api-sports.io/football/players/414537.png",
+              id: 5988,
+              name: "Milton Casco",
+              photo: "https://media.api-sports.io/football/players/5988.png",
             },
             statistics: [
               {
                 games: {
                   minutes: null,
-                  number: 35,
+                  number: 20,
+                  position: "D",
+                  rating: null,
+                  captain: false,
+                  substitute: true,
+                },
+                offsides: null,
+                shots: {
+                  total: null,
+                  on: null,
+                },
+                goals: {
+                  total: null,
+                  conceded: 0,
+                  assists: null,
+                  saves: null,
+                },
+                passes: {
+                  total: null,
+                  key: null,
+                  accuracy: null,
+                },
+                tackles: {
+                  total: null,
+                  blocks: null,
+                  interceptions: null,
+                },
+                duels: {
+                  total: null,
+                  won: null,
+                },
+                dribbles: {
+                  attempts: null,
+                  success: null,
+                  past: null,
+                },
+                fouls: {
+                  drawn: null,
+                  committed: null,
+                },
+                cards: {
+                  yellow: 0,
+                  red: 0,
+                },
+                penalty: {
+                  won: null,
+                  commited: null,
+                  scored: 0,
+                  missed: 0,
+                  saved: null,
+                },
+              },
+            ],
+          },
+          {
+            player: {
+              id: 1211,
+              name: "Matías Kranevitter",
+              photo: "https://media.api-sports.io/football/players/1211.png",
+            },
+            statistics: [
+              {
+                games: {
+                  minutes: null,
+                  number: 5,
                   position: "M",
                   rating: null,
                   captain: false,
@@ -2451,15 +2605,15 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 289482,
-              name: "Franco Romero",
-              photo: "https://media.api-sports.io/football/players/289482.png",
+              id: 449249,
+              name: "Franco Mastantuono",
+              photo: "https://media.api-sports.io/football/players/449249.png",
             },
             statistics: [
               {
                 games: {
                   minutes: null,
-                  number: 18,
+                  number: 30,
                   position: "M",
                   rating: null,
                   captain: false,
@@ -2515,80 +2669,16 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 295510,
-              name: "Facundo Echevarría",
-              photo: "https://media.api-sports.io/football/players/295510.png",
+              id: 13402,
+              name: "Agustín Palavecino",
+              photo: "https://media.api-sports.io/football/players/13402.png",
             },
             statistics: [
               {
                 games: {
                   minutes: null,
-                  number: 36,
-                  position: "F",
-                  rating: null,
-                  captain: false,
-                  substitute: true,
-                },
-                offsides: null,
-                shots: {
-                  total: null,
-                  on: null,
-                },
-                goals: {
-                  total: null,
-                  conceded: 0,
-                  assists: null,
-                  saves: null,
-                },
-                passes: {
-                  total: null,
-                  key: null,
-                  accuracy: null,
-                },
-                tackles: {
-                  total: null,
-                  blocks: null,
-                  interceptions: null,
-                },
-                duels: {
-                  total: null,
-                  won: null,
-                },
-                dribbles: {
-                  attempts: null,
-                  success: null,
-                  past: null,
-                },
-                fouls: {
-                  drawn: null,
-                  committed: null,
-                },
-                cards: {
-                  yellow: 0,
-                  red: 0,
-                },
-                penalty: {
-                  won: null,
-                  commited: null,
-                  scored: 0,
-                  missed: 0,
-                  saved: null,
-                },
-              },
-            ],
-          },
-          {
-            player: {
-              id: 278358,
-              name: "Santiago Godoy",
-              photo: "https://media.api-sports.io/football/players/278358.png",
-            },
-            statistics: [
-              {
-                games: {
-                  minutes: null,
-                  number: 9,
-                  position: "F",
+                  number: 8,
+                  position: "M",
                   rating: null,
                   captain: false,
                   substitute: true,
@@ -2645,22 +2735,22 @@ export const MATCH_BYID_RESPONSE = [
       },
       {
         team: {
-          id: 3700,
-          name: "Always Ready",
-          logo: "https://media.api-sports.io/football/teams/3700.png",
-          update: "2024-04-13T04:05:26+00:00",
+          id: 451,
+          name: "Boca Juniors",
+          logo: "https://media.api-sports.io/football/teams/451.png",
+          update: "2024-04-22T00:30:53+00:00",
         },
         players: [
           {
             player: {
-              id: 52561,
-              name: "Alain Baroja",
-              photo: "https://media.api-sports.io/football/players/52561.png",
+              id: 884,
+              name: "Sergio Romero",
+              photo: "https://media.api-sports.io/football/players/884.png",
             },
             statistics: [
               {
                 games: {
-                  minutes: 90,
+                  minutes: 98,
                   number: 1,
                   position: "G",
                   rating: "7.2",
@@ -2674,14 +2764,14 @@ export const MATCH_BYID_RESPONSE = [
                 },
                 goals: {
                   total: null,
-                  conceded: 1,
+                  conceded: 2,
                   assists: null,
-                  saves: 3,
+                  saves: 5,
                 },
                 passes: {
-                  total: 21,
+                  total: 17,
                   key: null,
-                  accuracy: "17",
+                  accuracy: "10",
                 },
                 tackles: {
                   total: null,
@@ -2717,17 +2807,17 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 307545,
-              name: "Diego Daniel Medina Roman",
-              photo: "https://media.api-sports.io/football/players/307545.png",
+              id: 2419,
+              name: "Luis Advíncula",
+              photo: "https://media.api-sports.io/football/players/2419.png",
             },
             statistics: [
               {
                 games: {
-                  minutes: 90,
-                  number: 2,
+                  minutes: 98,
+                  number: 17,
                   position: "D",
-                  rating: "6.7",
+                  rating: "6.6",
                   captain: false,
                   substitute: false,
                 },
@@ -2739,26 +2829,26 @@ export const MATCH_BYID_RESPONSE = [
                 goals: {
                   total: null,
                   conceded: 0,
-                  assists: null,
+                  assists: 1,
                   saves: null,
                 },
                 passes: {
-                  total: 18,
-                  key: null,
-                  accuracy: "16",
+                  total: 29,
+                  key: 1,
+                  accuracy: "21",
                 },
                 tackles: {
-                  total: 2,
+                  total: 1,
                   blocks: null,
                   interceptions: 1,
                 },
                 duels: {
-                  total: 10,
-                  won: 4,
+                  total: 14,
+                  won: 6,
                 },
                 dribbles: {
-                  attempts: 2,
-                  success: null,
+                  attempts: 6,
+                  success: 3,
                   past: null,
                 },
                 fouls: {
@@ -2781,24 +2871,24 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 311444,
-              name: "Pablo Vaca",
-              photo: "https://media.api-sports.io/football/players/311444.png",
+              id: 51599,
+              name: "Cristian Lema",
+              photo: "https://media.api-sports.io/football/players/51599.png",
             },
             statistics: [
               {
                 games: {
-                  minutes: 67,
-                  number: 3,
+                  minutes: 98,
+                  number: 2,
                   position: "D",
-                  rating: "6.3",
+                  rating: "6.9",
                   captain: false,
                   substitute: false,
                 },
                 offsides: null,
                 shots: {
-                  total: null,
-                  on: null,
+                  total: 1,
+                  on: 1,
                 },
                 goals: {
                   total: null,
@@ -2807,30 +2897,30 @@ export const MATCH_BYID_RESPONSE = [
                   saves: null,
                 },
                 passes: {
-                  total: 24,
+                  total: 31,
                   key: null,
-                  accuracy: "22",
+                  accuracy: "27",
                 },
                 tackles: {
-                  total: 2,
+                  total: 1,
                   blocks: null,
                   interceptions: 1,
                 },
                 duels: {
-                  total: 10,
+                  total: 7,
                   won: 4,
                 },
                 dribbles: {
-                  attempts: 2,
-                  success: 1,
+                  attempts: null,
+                  success: null,
                   past: null,
                 },
                 fouls: {
                   drawn: null,
-                  committed: 3,
+                  committed: 1,
                 },
                 cards: {
-                  yellow: 1,
+                  yellow: 0,
                   red: 0,
                 },
                 penalty: {
@@ -2845,17 +2935,17 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 304036,
-              name: "Luis Caicedo",
-              photo: "https://media.api-sports.io/football/players/304036.png",
+              id: 890,
+              name: "Marcos Rojo",
+              photo: "https://media.api-sports.io/football/players/890.png",
             },
             statistics: [
               {
                 games: {
-                  minutes: 90,
-                  number: 18,
+                  minutes: 98,
+                  number: 6,
                   position: "D",
-                  rating: "7.2",
+                  rating: "6.3",
                   captain: true,
                   substitute: false,
                 },
@@ -2871,82 +2961,18 @@ export const MATCH_BYID_RESPONSE = [
                   saves: null,
                 },
                 passes: {
-                  total: 30,
-                  key: 1,
-                  accuracy: "23",
-                },
-                tackles: {
-                  total: 1,
-                  blocks: 3,
-                  interceptions: null,
-                },
-                duels: {
-                  total: 2,
-                  won: 2,
-                },
-                dribbles: {
-                  attempts: null,
-                  success: null,
-                  past: null,
-                },
-                fouls: {
-                  drawn: null,
-                  committed: null,
-                },
-                cards: {
-                  yellow: 0,
-                  red: 0,
-                },
-                penalty: {
-                  won: null,
-                  commited: null,
-                  scored: 0,
-                  missed: 0,
-                  saved: null,
-                },
-              },
-            ],
-          },
-          {
-            player: {
-              id: 65831,
-              name: "Marcelo Suárez",
-              photo: "https://media.api-sports.io/football/players/65831.png",
-            },
-            statistics: [
-              {
-                games: {
-                  minutes: 90,
-                  number: 5,
-                  position: "D",
-                  rating: "6.9",
-                  captain: false,
-                  substitute: false,
-                },
-                offsides: null,
-                shots: {
-                  total: null,
-                  on: null,
-                },
-                goals: {
-                  total: null,
-                  conceded: 0,
-                  assists: null,
-                  saves: null,
-                },
-                passes: {
-                  total: 41,
+                  total: 36,
                   key: null,
-                  accuracy: "28",
+                  accuracy: "27",
                 },
                 tackles: {
-                  total: 3,
+                  total: null,
                   blocks: 1,
                   interceptions: null,
                 },
                 duels: {
-                  total: 6,
-                  won: 5,
+                  total: 4,
+                  won: 3,
                 },
                 dribbles: {
                   attempts: null,
@@ -2954,136 +2980,8 @@ export const MATCH_BYID_RESPONSE = [
                   past: 1,
                 },
                 fouls: {
-                  drawn: 2,
-                  committed: null,
-                },
-                cards: {
-                  yellow: 0,
-                  red: 0,
-                },
-                penalty: {
-                  won: null,
-                  commited: null,
-                  scored: 0,
-                  missed: 0,
-                  saved: null,
-                },
-              },
-            ],
-          },
-          {
-            player: {
-              id: 16313,
-              name: "José Carabalí",
-              photo: "https://media.api-sports.io/football/players/16313.png",
-            },
-            statistics: [
-              {
-                games: {
-                  minutes: 90,
-                  number: 14,
-                  position: "D",
-                  rating: "6",
-                  captain: false,
-                  substitute: false,
-                },
-                offsides: null,
-                shots: {
-                  total: null,
-                  on: null,
-                },
-                goals: {
-                  total: null,
-                  conceded: 0,
-                  assists: null,
-                  saves: null,
-                },
-                passes: {
-                  total: 16,
-                  key: 1,
-                  accuracy: "15",
-                },
-                tackles: {
-                  total: null,
-                  blocks: null,
-                  interceptions: 1,
-                },
-                duels: {
-                  total: 10,
-                  won: 2,
-                },
-                dribbles: {
-                  attempts: 5,
-                  success: 1,
-                  past: 1,
-                },
-                fouls: {
                   drawn: 1,
-                  committed: 1,
-                },
-                cards: {
-                  yellow: 0,
-                  red: 0,
-                },
-                penalty: {
-                  won: null,
-                  commited: null,
-                  scored: 0,
-                  missed: 0,
-                  saved: null,
-                },
-              },
-            ],
-          },
-          {
-            player: {
-              id: 404870,
-              name: "Robson Matheus",
-              photo: "https://media.api-sports.io/football/players/404870.png",
-            },
-            statistics: [
-              {
-                games: {
-                  minutes: 86,
-                  number: 21,
-                  position: "M",
-                  rating: "6.6",
-                  captain: false,
-                  substitute: false,
-                },
-                offsides: null,
-                shots: {
-                  total: 1,
-                  on: null,
-                },
-                goals: {
-                  total: null,
-                  conceded: 0,
-                  assists: null,
-                  saves: null,
-                },
-                passes: {
-                  total: 31,
-                  key: null,
-                  accuracy: "28",
-                },
-                tackles: {
-                  total: null,
-                  blocks: null,
-                  interceptions: 1,
-                },
-                duels: {
-                  total: 10,
-                  won: 5,
-                },
-                dribbles: {
-                  attempts: 3,
-                  success: 2,
-                  past: 1,
-                },
-                fouls: {
-                  drawn: 3,
-                  committed: 1,
+                  committed: null,
                 },
                 cards: {
                   yellow: 1,
@@ -3101,23 +2999,23 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 354347,
-              name: "Héctor Cuellar",
-              photo: "https://media.api-sports.io/football/players/354347.png",
+              id: 289444,
+              name: "Lautaro Blanco",
+              photo: "https://media.api-sports.io/football/players/289444.png",
             },
             statistics: [
               {
                 games: {
-                  minutes: 90,
-                  number: 13,
-                  position: "M",
+                  minutes: 98,
+                  number: 23,
+                  position: "D",
                   rating: "6.7",
                   captain: false,
                   substitute: false,
                 },
                 offsides: null,
                 shots: {
-                  total: 1,
+                  total: null,
                   on: null,
                 },
                 goals: {
@@ -3127,27 +3025,27 @@ export const MATCH_BYID_RESPONSE = [
                   saves: null,
                 },
                 passes: {
-                  total: 39,
-                  key: null,
-                  accuracy: "22",
+                  total: 46,
+                  key: 1,
+                  accuracy: "35",
                 },
                 tackles: {
-                  total: 4,
+                  total: 2,
                   blocks: null,
-                  interceptions: 3,
+                  interceptions: 1,
                 },
                 duels: {
-                  total: 13,
-                  won: 7,
+                  total: 6,
+                  won: 3,
                 },
                 dribbles: {
                   attempts: 2,
-                  success: null,
-                  past: 1,
+                  success: 1,
+                  past: null,
                 },
                 fouls: {
-                  drawn: 1,
-                  committed: 1,
+                  drawn: null,
+                  committed: 2,
                 },
                 cards: {
                   yellow: 1,
@@ -3165,88 +3063,24 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 65978,
-              name: "Adalid Terrazas",
-              photo: "https://media.api-sports.io/football/players/65978.png",
+              id: 392734,
+              name: "Jabes Saralegui",
+              photo: "https://media.api-sports.io/football/players/392734.png",
             },
             statistics: [
               {
                 games: {
-                  minutes: 89,
-                  number: 10,
+                  minutes: 64,
+                  number: 47,
                   position: "M",
-                  rating: "7.9",
-                  captain: false,
-                  substitute: false,
-                },
-                offsides: null,
-                shots: {
-                  total: 1,
-                  on: 1,
-                },
-                goals: {
-                  total: 1,
-                  conceded: 0,
-                  assists: null,
-                  saves: null,
-                },
-                passes: {
-                  total: 42,
-                  key: 3,
-                  accuracy: "34",
-                },
-                tackles: {
-                  total: 4,
-                  blocks: null,
-                  interceptions: null,
-                },
-                duels: {
-                  total: 17,
-                  won: 9,
-                },
-                dribbles: {
-                  attempts: 7,
-                  success: 2,
-                  past: 1,
-                },
-                fouls: {
-                  drawn: 3,
-                  committed: 1,
-                },
-                cards: {
-                  yellow: 1,
-                  red: 0,
-                },
-                penalty: {
-                  won: null,
-                  commited: null,
-                  scored: 0,
-                  missed: 0,
-                  saved: null,
-                },
-              },
-            ],
-          },
-          {
-            player: {
-              id: 406329,
-              name: "Darlison Rodriguez",
-              photo: "https://media.api-sports.io/football/players/406329.png",
-            },
-            statistics: [
-              {
-                games: {
-                  minutes: 67,
-                  number: 11,
-                  position: "F",
                   rating: "6.9",
                   captain: false,
                   substitute: false,
                 },
                 offsides: null,
                 shots: {
-                  total: 1,
-                  on: 1,
+                  total: null,
+                  on: null,
                 },
                 goals: {
                   total: null,
@@ -3255,141 +3089,13 @@ export const MATCH_BYID_RESPONSE = [
                   saves: null,
                 },
                 passes: {
-                  total: 14,
-                  key: 1,
-                  accuracy: "12",
-                },
-                tackles: {
-                  total: null,
-                  blocks: null,
-                  interceptions: null,
-                },
-                duels: {
-                  total: 6,
-                  won: 2,
-                },
-                dribbles: {
-                  attempts: 3,
-                  success: 2,
-                  past: null,
-                },
-                fouls: {
-                  drawn: null,
-                  committed: 1,
-                },
-                cards: {
-                  yellow: 1,
-                  red: 0,
-                },
-                penalty: {
-                  won: null,
-                  commited: null,
-                  scored: 0,
-                  missed: 0,
-                  saved: null,
-                },
-              },
-            ],
-          },
-          {
-            player: {
-              id: 66441,
-              name: "Wesley Tanque",
-              photo: "https://media.api-sports.io/football/players/66441.png",
-            },
-            statistics: [
-              {
-                games: {
-                  minutes: 90,
-                  number: 9,
-                  position: "F",
-                  rating: "6.2",
-                  captain: false,
-                  substitute: false,
-                },
-                offsides: 1,
-                shots: {
-                  total: 3,
-                  on: 2,
-                },
-                goals: {
-                  total: null,
-                  conceded: 0,
-                  assists: null,
-                  saves: null,
-                },
-                passes: {
-                  total: 9,
-                  key: 1,
-                  accuracy: "4",
-                },
-                tackles: {
-                  total: null,
-                  blocks: null,
-                  interceptions: null,
-                },
-                duels: {
-                  total: 13,
-                  won: 4,
-                },
-                dribbles: {
-                  attempts: 2,
-                  success: null,
-                  past: null,
-                },
-                fouls: {
-                  drawn: 3,
-                  committed: 1,
-                },
-                cards: {
-                  yellow: 0,
-                  red: 0,
-                },
-                penalty: {
-                  won: null,
-                  commited: null,
-                  scored: 0,
-                  missed: 0,
-                  saved: null,
-                },
-              },
-            ],
-          },
-          {
-            player: {
-              id: 65664,
-              name: "Julio Herrera",
-              photo: "https://media.api-sports.io/football/players/65664.png",
-            },
-            statistics: [
-              {
-                games: {
-                  minutes: 23,
-                  number: 7,
-                  position: "M",
-                  rating: "6.6",
-                  captain: false,
-                  substitute: true,
-                },
-                offsides: null,
-                shots: {
-                  total: 1,
-                  on: 1,
-                },
-                goals: {
-                  total: null,
-                  conceded: 0,
-                  assists: null,
-                  saves: null,
-                },
-                passes: {
-                  total: 10,
+                  total: 20,
                   key: null,
-                  accuracy: "9",
+                  accuracy: "19",
                 },
                 tackles: {
-                  total: null,
-                  blocks: 1,
+                  total: 1,
+                  blocks: null,
                   interceptions: 1,
                 },
                 duels: {
@@ -3399,11 +3105,11 @@ export const MATCH_BYID_RESPONSE = [
                 dribbles: {
                   attempts: null,
                   success: null,
-                  past: null,
+                  past: 1,
                 },
                 fouls: {
                   drawn: null,
-                  committed: 1,
+                  committed: null,
                 },
                 cards: {
                   yellow: 0,
@@ -3421,23 +3127,151 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 35986,
-              name: "Ayron Del Valle",
-              photo: "https://media.api-sports.io/football/players/35986.png",
+              id: 237087,
+              name: "Ezequiel Fernández",
+              photo: "https://media.api-sports.io/football/players/237087.png",
             },
             statistics: [
               {
                 games: {
-                  minutes: 23,
-                  number: 8,
-                  position: "F",
-                  rating: "7",
+                  minutes: 98,
+                  number: 21,
+                  position: "M",
+                  rating: "6.9",
                   captain: false,
-                  substitute: true,
+                  substitute: false,
+                },
+                offsides: null,
+                shots: {
+                  total: 1,
+                  on: null,
+                },
+                goals: {
+                  total: null,
+                  conceded: 0,
+                  assists: null,
+                  saves: null,
+                },
+                passes: {
+                  total: 37,
+                  key: 1,
+                  accuracy: "36",
+                },
+                tackles: {
+                  total: 1,
+                  blocks: null,
+                  interceptions: 1,
+                },
+                duels: {
+                  total: 15,
+                  won: 8,
+                },
+                dribbles: {
+                  attempts: 2,
+                  success: 1,
+                  past: 2,
+                },
+                fouls: {
+                  drawn: 4,
+                  committed: 3,
+                },
+                cards: {
+                  yellow: 0,
+                  red: 0,
+                },
+                penalty: {
+                  won: null,
+                  commited: null,
+                  scored: 0,
+                  missed: 0,
+                  saved: null,
+                },
+              },
+            ],
+          },
+          {
+            player: {
+              id: 5916,
+              name: "Pol Fernández",
+              photo: "https://media.api-sports.io/football/players/5916.png",
+            },
+            statistics: [
+              {
+                games: {
+                  minutes: 86,
+                  number: 8,
+                  position: "M",
+                  rating: "6.3",
+                  captain: false,
+                  substitute: false,
                 },
                 offsides: null,
                 shots: {
                   total: null,
+                  on: null,
+                },
+                goals: {
+                  total: null,
+                  conceded: 0,
+                  assists: null,
+                  saves: null,
+                },
+                passes: {
+                  total: 36,
+                  key: null,
+                  accuracy: "32",
+                },
+                tackles: {
+                  total: null,
+                  blocks: 1,
+                  interceptions: 2,
+                },
+                duels: {
+                  total: 6,
+                  won: 1,
+                },
+                dribbles: {
+                  attempts: 1,
+                  success: null,
+                  past: null,
+                },
+                fouls: {
+                  drawn: null,
+                  committed: 3,
+                },
+                cards: {
+                  yellow: 0,
+                  red: 0,
+                },
+                penalty: {
+                  won: null,
+                  commited: null,
+                  scored: 0,
+                  missed: 0,
+                  saved: null,
+                },
+              },
+            ],
+          },
+          {
+            player: {
+              id: 288707,
+              name: "Kevin Zenón",
+              photo: "https://media.api-sports.io/football/players/288707.png",
+            },
+            statistics: [
+              {
+                games: {
+                  minutes: 98,
+                  number: 22,
+                  position: "M",
+                  rating: "7.7",
+                  captain: false,
+                  substitute: false,
+                },
+                offsides: null,
+                shots: {
+                  total: 2,
                   on: null,
                 },
                 goals: {
@@ -3447,9 +3281,9 @@ export const MATCH_BYID_RESPONSE = [
                   saves: null,
                 },
                 passes: {
-                  total: 3,
-                  key: 1,
-                  accuracy: "3",
+                  total: 28,
+                  key: 3,
+                  accuracy: "22",
                 },
                 tackles: {
                   total: 1,
@@ -3457,12 +3291,12 @@ export const MATCH_BYID_RESPONSE = [
                   interceptions: null,
                 },
                 duels: {
-                  total: 2,
-                  won: 1,
+                  total: 6,
+                  won: 2,
                 },
                 dribbles: {
-                  attempts: null,
-                  success: null,
+                  attempts: 4,
+                  success: 1,
                   past: null,
                 },
                 fouls: {
@@ -3485,15 +3319,335 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 191855,
-              name: "José Martínez",
-              photo: "https://media.api-sports.io/football/players/191855.png",
+              id: 274,
+              name: "Edinson Cavani",
+              photo: "https://media.api-sports.io/football/players/274.png",
             },
             statistics: [
               {
                 games: {
-                  minutes: 10,
-                  number: 27,
+                  minutes: 73,
+                  number: 10,
+                  position: "F",
+                  rating: "7.2",
+                  captain: false,
+                  substitute: false,
+                },
+                offsides: 2,
+                shots: {
+                  total: 4,
+                  on: 2,
+                },
+                goals: {
+                  total: 1,
+                  conceded: 0,
+                  assists: null,
+                  saves: null,
+                },
+                passes: {
+                  total: 15,
+                  key: null,
+                  accuracy: "11",
+                },
+                tackles: {
+                  total: 1,
+                  blocks: null,
+                  interceptions: null,
+                },
+                duels: {
+                  total: 7,
+                  won: 4,
+                },
+                dribbles: {
+                  attempts: 1,
+                  success: null,
+                  past: null,
+                },
+                fouls: {
+                  drawn: 2,
+                  committed: 1,
+                },
+                cards: {
+                  yellow: 1,
+                  red: 0,
+                },
+                penalty: {
+                  won: null,
+                  commited: null,
+                  scored: 0,
+                  missed: 0,
+                  saved: null,
+                },
+              },
+            ],
+          },
+          {
+            player: {
+              id: 6327,
+              name: "Miguel Merentiel",
+              photo: "https://media.api-sports.io/football/players/6327.png",
+            },
+            statistics: [
+              {
+                games: {
+                  minutes: 86,
+                  number: 16,
+                  position: "F",
+                  rating: "8.9",
+                  captain: false,
+                  substitute: false,
+                },
+                offsides: null,
+                shots: {
+                  total: 2,
+                  on: 2,
+                },
+                goals: {
+                  total: 2,
+                  conceded: 0,
+                  assists: null,
+                  saves: null,
+                },
+                passes: {
+                  total: 11,
+                  key: 2,
+                  accuracy: "10",
+                },
+                tackles: {
+                  total: null,
+                  blocks: null,
+                  interceptions: null,
+                },
+                duels: {
+                  total: 9,
+                  won: 4,
+                },
+                dribbles: {
+                  attempts: 2,
+                  success: 2,
+                  past: 1,
+                },
+                fouls: {
+                  drawn: 1,
+                  committed: null,
+                },
+                cards: {
+                  yellow: 1,
+                  red: 0,
+                },
+                penalty: {
+                  won: null,
+                  commited: null,
+                  scored: 0,
+                  missed: 0,
+                  saved: null,
+                },
+              },
+            ],
+          },
+          {
+            player: {
+              id: 6082,
+              name: "Nicolás Figal",
+              photo: "https://media.api-sports.io/football/players/6082.png",
+            },
+            statistics: [
+              {
+                games: {
+                  minutes: 34,
+                  number: 4,
+                  position: "D",
+                  rating: "6.2",
+                  captain: false,
+                  substitute: true,
+                },
+                offsides: null,
+                shots: {
+                  total: null,
+                  on: null,
+                },
+                goals: {
+                  total: null,
+                  conceded: 0,
+                  assists: null,
+                  saves: null,
+                },
+                passes: {
+                  total: 3,
+                  key: null,
+                  accuracy: "1",
+                },
+                tackles: {
+                  total: 1,
+                  blocks: null,
+                  interceptions: null,
+                },
+                duels: {
+                  total: 4,
+                  won: 2,
+                },
+                dribbles: {
+                  attempts: null,
+                  success: null,
+                  past: null,
+                },
+                fouls: {
+                  drawn: 1,
+                  committed: 2,
+                },
+                cards: {
+                  yellow: 1,
+                  red: 0,
+                },
+                penalty: {
+                  won: null,
+                  commited: null,
+                  scored: 0,
+                  missed: 0,
+                  saved: null,
+                },
+              },
+            ],
+          },
+          {
+            player: {
+              id: 2478,
+              name: "Darío Benedetto",
+              photo: "https://media.api-sports.io/football/players/2478.png",
+            },
+            statistics: [
+              {
+                games: {
+                  minutes: 25,
+                  number: 9,
+                  position: "F",
+                  rating: "6.3",
+                  captain: false,
+                  substitute: true,
+                },
+                offsides: null,
+                shots: {
+                  total: 1,
+                  on: null,
+                },
+                goals: {
+                  total: null,
+                  conceded: 0,
+                  assists: null,
+                  saves: null,
+                },
+                passes: {
+                  total: 2,
+                  key: null,
+                  accuracy: null,
+                },
+                tackles: {
+                  total: null,
+                  blocks: null,
+                  interceptions: null,
+                },
+                duels: {
+                  total: 1,
+                  won: null,
+                },
+                dribbles: {
+                  attempts: null,
+                  success: null,
+                  past: null,
+                },
+                fouls: {
+                  drawn: null,
+                  committed: 1,
+                },
+                cards: {
+                  yellow: 0,
+                  red: 0,
+                },
+                penalty: {
+                  won: null,
+                  commited: null,
+                  scored: 0,
+                  missed: 0,
+                  saved: null,
+                },
+              },
+            ],
+          },
+          {
+            player: {
+              id: 5972,
+              name: "Jorman Campuzano",
+              photo: "https://media.api-sports.io/football/players/5972.png",
+            },
+            statistics: [
+              {
+                games: {
+                  minutes: 12,
+                  number: 49,
+                  position: "M",
+                  rating: "6.2",
+                  captain: false,
+                  substitute: true,
+                },
+                offsides: null,
+                shots: {
+                  total: null,
+                  on: null,
+                },
+                goals: {
+                  total: null,
+                  conceded: 0,
+                  assists: null,
+                  saves: null,
+                },
+                passes: {
+                  total: 2,
+                  key: null,
+                  accuracy: "2",
+                },
+                tackles: {
+                  total: null,
+                  blocks: null,
+                  interceptions: null,
+                },
+                duels: {
+                  total: 1,
+                  won: null,
+                },
+                dribbles: {
+                  attempts: null,
+                  success: null,
+                  past: null,
+                },
+                fouls: {
+                  drawn: null,
+                  committed: 1,
+                },
+                cards: {
+                  yellow: 0,
+                  red: 0,
+                },
+                penalty: {
+                  won: null,
+                  commited: null,
+                  scored: 0,
+                  missed: 0,
+                  saved: null,
+                },
+              },
+            ],
+          },
+          {
+            player: {
+              id: 363393,
+              name: "Luca Langoni",
+              photo: "https://media.api-sports.io/football/players/363393.png",
+            },
+            statistics: [
+              {
+                games: {
+                  minutes: 12,
+                  number: 14,
                   position: "F",
                   rating: "6.3",
                   captain: false,
@@ -3513,71 +3667,7 @@ export const MATCH_BYID_RESPONSE = [
                 passes: {
                   total: 1,
                   key: null,
-                  accuracy: null,
-                },
-                tackles: {
-                  total: null,
-                  blocks: null,
-                  interceptions: null,
-                },
-                duels: {
-                  total: 1,
-                  won: null,
-                },
-                dribbles: {
-                  attempts: null,
-                  success: null,
-                  past: null,
-                },
-                fouls: {
-                  drawn: null,
-                  committed: null,
-                },
-                cards: {
-                  yellow: 0,
-                  red: 0,
-                },
-                penalty: {
-                  won: null,
-                  commited: null,
-                  scored: 0,
-                  missed: 0,
-                  saved: null,
-                },
-              },
-            ],
-          },
-          {
-            player: {
-              id: 265923,
-              name: "Alexandro Zenteno",
-              photo: "https://media.api-sports.io/football/players/265923.png",
-            },
-            statistics: [
-              {
-                games: {
-                  minutes: 1,
-                  number: 30,
-                  position: "M",
-                  rating: null,
-                  captain: false,
-                  substitute: true,
-                },
-                offsides: null,
-                shots: {
-                  total: null,
-                  on: null,
-                },
-                goals: {
-                  total: null,
-                  conceded: 0,
-                  assists: null,
-                  saves: null,
-                },
-                passes: {
-                  total: null,
-                  key: null,
-                  accuracy: null,
+                  accuracy: "1",
                 },
                 tackles: {
                   total: null,
@@ -3613,15 +3703,15 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 404942,
-              name: "Enzo Rodriguez",
-              photo: "https://media.api-sports.io/football/players/404942.png",
+              id: 177230,
+              name: "Leandro Brey",
+              photo: "https://media.api-sports.io/football/players/177230.png",
             },
             statistics: [
               {
                 games: {
                   minutes: null,
-                  number: 99,
+                  number: 12,
                   position: "G",
                   rating: null,
                   captain: false,
@@ -3677,15 +3767,15 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 354227,
-              name: "Enrique Taborga",
-              photo: "https://media.api-sports.io/football/players/354227.png",
+              id: 5963,
+              name: "Frank Fabra",
+              photo: "https://media.api-sports.io/football/players/5963.png",
             },
             statistics: [
               {
                 games: {
                   minutes: null,
-                  number: 6,
+                  number: 18,
                   position: "D",
                   rating: null,
                   captain: false,
@@ -3741,336 +3831,336 @@ export const MATCH_BYID_RESPONSE = [
           },
           {
             player: {
-              id: 406304,
-              name: "Walter Flores",
-              photo: "https://media.api-sports.io/football/players/406304.png",
-            },
-            statistics: [
-              {
-                games: {
-                  minutes: null,
-                  number: 15,
-                  position: "F",
-                  rating: null,
-                  captain: false,
-                  substitute: true,
-                },
-                offsides: null,
-                shots: {
-                  total: null,
-                  on: null,
-                },
-                goals: {
-                  total: null,
-                  conceded: 0,
-                  assists: null,
-                  saves: null,
-                },
-                passes: {
-                  total: null,
-                  key: null,
-                  accuracy: null,
-                },
-                tackles: {
-                  total: null,
-                  blocks: null,
-                  interceptions: null,
-                },
-                duels: {
-                  total: null,
-                  won: null,
-                },
-                dribbles: {
-                  attempts: null,
-                  success: null,
-                  past: null,
-                },
-                fouls: {
-                  drawn: null,
-                  committed: null,
-                },
-                cards: {
-                  yellow: 0,
-                  red: 0,
-                },
-                penalty: {
-                  won: null,
-                  commited: null,
-                  scored: 0,
-                  missed: 0,
-                  saved: null,
-                },
-              },
-            ],
-          },
-          {
-            player: {
-              id: 329004,
-              name: "José Briceño",
-              photo: "https://media.api-sports.io/football/players/329004.png",
-            },
-            statistics: [
-              {
-                games: {
-                  minutes: null,
-                  number: 19,
-                  position: "F",
-                  rating: null,
-                  captain: false,
-                  substitute: true,
-                },
-                offsides: null,
-                shots: {
-                  total: null,
-                  on: null,
-                },
-                goals: {
-                  total: null,
-                  conceded: 0,
-                  assists: null,
-                  saves: null,
-                },
-                passes: {
-                  total: null,
-                  key: null,
-                  accuracy: null,
-                },
-                tackles: {
-                  total: null,
-                  blocks: null,
-                  interceptions: null,
-                },
-                duels: {
-                  total: null,
-                  won: null,
-                },
-                dribbles: {
-                  attempts: null,
-                  success: null,
-                  past: null,
-                },
-                fouls: {
-                  drawn: null,
-                  committed: null,
-                },
-                cards: {
-                  yellow: 0,
-                  red: 0,
-                },
-                penalty: {
-                  won: null,
-                  commited: null,
-                  scored: 0,
-                  missed: 0,
-                  saved: null,
-                },
-              },
-            ],
-          },
-          {
-            player: {
-              id: 394619,
-              name: "Matías Galindo",
-              photo: "https://media.api-sports.io/football/players/394619.png",
-            },
-            statistics: [
-              {
-                games: {
-                  minutes: null,
-                  number: 25,
-                  position: "M",
-                  rating: null,
-                  captain: false,
-                  substitute: true,
-                },
-                offsides: null,
-                shots: {
-                  total: null,
-                  on: null,
-                },
-                goals: {
-                  total: null,
-                  conceded: 0,
-                  assists: null,
-                  saves: null,
-                },
-                passes: {
-                  total: null,
-                  key: null,
-                  accuracy: null,
-                },
-                tackles: {
-                  total: null,
-                  blocks: null,
-                  interceptions: null,
-                },
-                duels: {
-                  total: null,
-                  won: null,
-                },
-                dribbles: {
-                  attempts: null,
-                  success: null,
-                  past: null,
-                },
-                fouls: {
-                  drawn: null,
-                  committed: null,
-                },
-                cards: {
-                  yellow: 0,
-                  red: 0,
-                },
-                penalty: {
-                  won: null,
-                  commited: null,
-                  scored: 0,
-                  missed: 0,
-                  saved: null,
-                },
-              },
-            ],
-          },
-          {
-            player: {
-              id: 406889,
-              name: "Alfredo Alanoca",
-              photo: "https://media.api-sports.io/football/players/406889.png",
-            },
-            statistics: [
-              {
-                games: {
-                  minutes: null,
-                  number: 38,
-                  position: "M",
-                  rating: null,
-                  captain: false,
-                  substitute: true,
-                },
-                offsides: null,
-                shots: {
-                  total: null,
-                  on: null,
-                },
-                goals: {
-                  total: null,
-                  conceded: 0,
-                  assists: null,
-                  saves: null,
-                },
-                passes: {
-                  total: null,
-                  key: null,
-                  accuracy: null,
-                },
-                tackles: {
-                  total: null,
-                  blocks: null,
-                  interceptions: null,
-                },
-                duels: {
-                  total: null,
-                  won: null,
-                },
-                dribbles: {
-                  attempts: null,
-                  success: null,
-                  past: null,
-                },
-                fouls: {
-                  drawn: null,
-                  committed: null,
-                },
-                cards: {
-                  yellow: 0,
-                  red: 0,
-                },
-                penalty: {
-                  won: null,
-                  commited: null,
-                  scored: 0,
-                  missed: 0,
-                  saved: null,
-                },
-              },
-            ],
-          },
-          {
-            player: {
-              id: 307037,
-              name: "Mateo Abastoflor",
-              photo: "https://media.api-sports.io/football/players/307037.png",
-            },
-            statistics: [
-              {
-                games: {
-                  minutes: null,
-                  number: 31,
-                  position: "F",
-                  rating: null,
-                  captain: false,
-                  substitute: true,
-                },
-                offsides: null,
-                shots: {
-                  total: null,
-                  on: null,
-                },
-                goals: {
-                  total: null,
-                  conceded: 0,
-                  assists: null,
-                  saves: null,
-                },
-                passes: {
-                  total: null,
-                  key: null,
-                  accuracy: null,
-                },
-                tackles: {
-                  total: null,
-                  blocks: null,
-                  interceptions: null,
-                },
-                duels: {
-                  total: null,
-                  won: null,
-                },
-                dribbles: {
-                  attempts: null,
-                  success: null,
-                  past: null,
-                },
-                fouls: {
-                  drawn: null,
-                  committed: null,
-                },
-                cards: {
-                  yellow: 0,
-                  red: 0,
-                },
-                penalty: {
-                  won: null,
-                  commited: null,
-                  scored: 0,
-                  missed: 0,
-                  saved: null,
-                },
-              },
-            ],
-          },
-          {
-            player: {
-              id: 394618,
-              name: "Moises Paniagua",
-              photo: "https://media.api-sports.io/football/players/394618.png",
+              id: 369412,
+              name: "Lautaro Di Lollo",
+              photo: "https://media.api-sports.io/football/players/369412.png",
             },
             statistics: [
               {
                 games: {
                   minutes: null,
                   number: 40,
+                  position: "D",
+                  rating: null,
+                  captain: false,
+                  substitute: true,
+                },
+                offsides: null,
+                shots: {
+                  total: null,
+                  on: null,
+                },
+                goals: {
+                  total: null,
+                  conceded: 0,
+                  assists: null,
+                  saves: null,
+                },
+                passes: {
+                  total: null,
+                  key: null,
+                  accuracy: null,
+                },
+                tackles: {
+                  total: null,
+                  blocks: null,
+                  interceptions: null,
+                },
+                duels: {
+                  total: null,
+                  won: null,
+                },
+                dribbles: {
+                  attempts: null,
+                  success: null,
+                  past: null,
+                },
+                fouls: {
+                  drawn: null,
+                  committed: null,
+                },
+                cards: {
+                  yellow: 0,
+                  red: 0,
+                },
+                penalty: {
+                  won: null,
+                  commited: null,
+                  scored: 0,
+                  missed: 0,
+                  saved: null,
+                },
+              },
+            ],
+          },
+          {
+            player: {
+              id: 1160,
+              name: "Marcelo Saracchi",
+              photo: "https://media.api-sports.io/football/players/1160.png",
+            },
+            statistics: [
+              {
+                games: {
+                  minutes: null,
+                  number: 3,
+                  position: "D",
+                  rating: null,
+                  captain: false,
+                  substitute: true,
+                },
+                offsides: null,
+                shots: {
+                  total: null,
+                  on: null,
+                },
+                goals: {
+                  total: null,
+                  conceded: 0,
+                  assists: null,
+                  saves: null,
+                },
+                passes: {
+                  total: null,
+                  key: null,
+                  accuracy: null,
+                },
+                tackles: {
+                  total: null,
+                  blocks: null,
+                  interceptions: null,
+                },
+                duels: {
+                  total: null,
+                  won: null,
+                },
+                dribbles: {
+                  attempts: null,
+                  success: null,
+                  past: null,
+                },
+                fouls: {
+                  drawn: null,
+                  committed: null,
+                },
+                cards: {
+                  yellow: 0,
+                  red: 0,
+                },
+                penalty: {
+                  won: null,
+                  commited: null,
+                  scored: 0,
+                  missed: 0,
+                  saved: null,
+                },
+              },
+            ],
+          },
+          {
+            player: {
+              id: 6324,
+              name: "Ezequiel Bullaude",
+              photo: "https://media.api-sports.io/football/players/6324.png",
+            },
+            statistics: [
+              {
+                games: {
+                  minutes: null,
+                  number: 5,
+                  position: "M",
+                  rating: null,
+                  captain: false,
+                  substitute: true,
+                },
+                offsides: null,
+                shots: {
+                  total: null,
+                  on: null,
+                },
+                goals: {
+                  total: null,
+                  conceded: 0,
+                  assists: null,
+                  saves: null,
+                },
+                passes: {
+                  total: null,
+                  key: null,
+                  accuracy: null,
+                },
+                tackles: {
+                  total: null,
+                  blocks: null,
+                  interceptions: null,
+                },
+                duels: {
+                  total: null,
+                  won: null,
+                },
+                dribbles: {
+                  attempts: null,
+                  success: null,
+                  past: null,
+                },
+                fouls: {
+                  drawn: null,
+                  committed: null,
+                },
+                cards: {
+                  yellow: 0,
+                  red: 0,
+                },
+                penalty: {
+                  won: null,
+                  commited: null,
+                  scored: 0,
+                  missed: 0,
+                  saved: null,
+                },
+              },
+            ],
+          },
+          {
+            player: {
+              id: 459876,
+              name: "Milton Delgado",
+              photo: "https://media.api-sports.io/football/players/459876.png",
+            },
+            statistics: [
+              {
+                games: {
+                  minutes: null,
+                  number: 43,
+                  position: "M",
+                  rating: null,
+                  captain: false,
+                  substitute: true,
+                },
+                offsides: null,
+                shots: {
+                  total: null,
+                  on: null,
+                },
+                goals: {
+                  total: null,
+                  conceded: 0,
+                  assists: null,
+                  saves: null,
+                },
+                passes: {
+                  total: null,
+                  key: null,
+                  accuracy: null,
+                },
+                tackles: {
+                  total: null,
+                  blocks: null,
+                  interceptions: null,
+                },
+                duels: {
+                  total: null,
+                  won: null,
+                },
+                dribbles: {
+                  attempts: null,
+                  success: null,
+                  past: null,
+                },
+                fouls: {
+                  drawn: null,
+                  committed: null,
+                },
+                cards: {
+                  yellow: 0,
+                  red: 0,
+                },
+                penalty: {
+                  won: null,
+                  commited: null,
+                  scored: 0,
+                  missed: 0,
+                  saved: null,
+                },
+              },
+            ],
+          },
+          {
+            player: {
+              id: 6189,
+              name: "Norberto Briasco",
+              photo: "https://media.api-sports.io/football/players/6189.png",
+            },
+            statistics: [
+              {
+                games: {
+                  minutes: null,
+                  number: 29,
                   position: "F",
+                  rating: null,
+                  captain: false,
+                  substitute: true,
+                },
+                offsides: null,
+                shots: {
+                  total: null,
+                  on: null,
+                },
+                goals: {
+                  total: null,
+                  conceded: 0,
+                  assists: null,
+                  saves: null,
+                },
+                passes: {
+                  total: null,
+                  key: null,
+                  accuracy: null,
+                },
+                tackles: {
+                  total: null,
+                  blocks: null,
+                  interceptions: null,
+                },
+                duels: {
+                  total: null,
+                  won: null,
+                },
+                dribbles: {
+                  attempts: null,
+                  success: null,
+                  past: null,
+                },
+                fouls: {
+                  drawn: null,
+                  committed: null,
+                },
+                cards: {
+                  yellow: 0,
+                  red: 0,
+                },
+                penalty: {
+                  won: null,
+                  commited: null,
+                  scored: 0,
+                  missed: 0,
+                  saved: null,
+                },
+              },
+            ],
+          },
+          {
+            player: {
+              id: 323785,
+              name: "Vicente Taborda",
+              photo: "https://media.api-sports.io/football/players/323785.png",
+            },
+            statistics: [
+              {
+                games: {
+                  minutes: null,
+                  number: 39,
+                  position: "M",
                   rating: null,
                   captain: false,
                   substitute: true,

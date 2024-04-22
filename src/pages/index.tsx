@@ -5,7 +5,7 @@ import { es } from "date-fns/locale";
 import { api } from "@/utils/api";
 import { format } from "date-fns";
 import { League } from "@/components/League";
-import { IconExternalLink, IconReload } from "@tabler/icons-react";
+import { IconReload } from "@tabler/icons-react";
 import { useState } from "react";
 
 export default function Home({ today = format(new Date(), "yyyy-MM-dd") }) {
