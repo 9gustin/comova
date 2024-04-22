@@ -110,10 +110,9 @@ export default function MatchPage() {
               <li key={player.id} className="text-md text-left">
                 {player.number}. {player.name}
               </li>
-              {/* show divider if next player are diferent player.pos */}
               {index + 1 < matchData.lineups.away.startXI.length &&
                 player.pos !==
-                  matchData.lineups.home.startXI[index + 1]?.player.pos && (
+                  matchData.lineups.away.startXI[index + 1]?.player.pos && (
                   <div className="divider m-0" />
                 )}
             </>
