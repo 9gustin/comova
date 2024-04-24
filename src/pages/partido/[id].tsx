@@ -29,7 +29,7 @@ export default function MatchPage() {
       <div className="flex w-full justify-center">
         <RenderMatchStatus date={matchData.date} status={matchData.status} />
       </div>
-      <div className="flex w-full gap-4 bg-base-200 px-2 py-4 rounded-lg">
+      <div className="flex w-full gap-4 rounded-lg bg-base-200 px-2 py-4">
         <div className="flex w-1/2 flex-col items-end gap-4">
           <div className="flex w-full items-center justify-end gap-2">
             <TeamTeam
@@ -87,55 +87,63 @@ export default function MatchPage() {
           </ul>
         </div>
       </div>
-      <h3 className="w-full text-center text-lg font-semibold">Titulares</h3>
-      <div className="flex w-full gap-4  bg-base-200 px-2 py-4 rounded-lg">
-        <ul className="flex w-1/2 flex-col gap-2">
-          {matchData.lineups.home.startXI.map(({ player }, index) => (
-            <>
-              <li key={player.id} className="text-md text-right">
-                {player.number}. {player.name}
-              </li>
-              {/* show divider if next player are diferent player.pos */}
-              {index + 1 < matchData.lineups.home.startXI.length &&
-                player.pos !==
-                  matchData.lineups.home.startXI[index + 1]?.player.pos && (
-                  <div className="divider m-0" />
-                )}
-            </>
-          ))}
-        </ul>
-        <ul className="flex w-1/2 flex-col gap-2 ">
-          {matchData.lineups.away.startXI.map(({ player }, index) => (
-            <>
-              <li key={player.id} className="text-md text-left">
-                {player.number}. {player.name}
-              </li>
-              {index + 1 < matchData.lineups.away.startXI.length &&
-                player.pos !==
-                  matchData.lineups.away.startXI[index + 1]?.player.pos && (
-                  <div className="divider m-0" />
-                )}
-            </>
-          ))}
-        </ul>
-      </div>
-      <h3 className="w-full text-center text-lg font-semibold">En el banco</h3>
-      <div className="flex w-full gap-4 bg-base-200 px-2 py-4 rounded-lg">
-        <ul className="flex w-1/2 flex-col gap-2">
-          {matchData.lineups.home.substitutes.map(({ player }) => (
-            <li key={player.id} className="text-md text-right">
-              {player.number}. {player.name}
-            </li>
-          ))}
-        </ul>
-        <ul className="flex w-1/2 flex-col gap-2">
-          {matchData.lineups.away.substitutes.map(({ player }) => (
-            <li key={player.id} className="text-md text-left">
-              {player.number}. {player.name}
-            </li>
-          ))}
-        </ul>
-      </div>
+      {matchData.lineups?.home && matchData.lineups?.away && (
+        <>
+          <h3 className="w-full text-center text-lg font-semibold">
+            Titulares
+          </h3>
+          <div className="flex w-full gap-4  rounded-lg bg-base-200 px-2 py-4">
+            <ul className="flex w-1/2 flex-col gap-2">
+              {matchData.lineups?.home?.startXI?.map(({ player }, index) => (
+                <>
+                  <li key={player.id} className="text-md text-right">
+                    {player.number}. {player.name}
+                  </li>
+                  {/* show divider if next player are diferent player.pos */}
+                  {index + 1 < matchData.lineups.home.startXI.length &&
+                    player.pos !==
+                      matchData.lineups.home.startXI[index + 1]?.player.pos && (
+                      <div className="divider m-0" />
+                    )}
+                </>
+              ))}
+            </ul>
+            <ul className="flex w-1/2 flex-col gap-2 ">
+              {matchData.lineups?.away?.startXI?.map(({ player }, index) => (
+                <>
+                  <li key={player.id} className="text-md text-left">
+                    {player.number}. {player.name}
+                  </li>
+                  {index + 1 < matchData.lineups.away.startXI.length &&
+                    player.pos !==
+                      matchData.lineups.away.startXI[index + 1]?.player.pos && (
+                      <div className="divider m-0" />
+                    )}
+                </>
+              ))}
+            </ul>
+          </div>
+          <h3 className="w-full text-center text-lg font-semibold">
+            En el banco
+          </h3>
+          <div className="flex w-full gap-4 rounded-lg bg-base-200 px-2 py-4">
+            <ul className="flex w-1/2 flex-col gap-2">
+              {matchData.lineups?.home?.substitutes?.map(({ player }) => (
+                <li key={player.id} className="text-md text-right">
+                  {player.number}. {player.name}
+                </li>
+              ))}
+            </ul>
+            <ul className="flex w-1/2 flex-col gap-2">
+              {matchData.lineups?.away?.substitutes?.map(({ player }) => (
+                <li key={player.id} className="text-md text-left">
+                  {player.number}. {player.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </>
+      )}
     </Layout>
   );
 }
