@@ -33,9 +33,10 @@ export const Team: FC<{
   </>
 );
 
-export const RenderMatchStatus: FC<{ status: MatchStatus; date: Date }> = ({
+export const RenderMatchStatus: FC<{ status: MatchStatus; date: Date; elapsed?: number | null }> = ({
   date,
   status,
+  elapsed,
 }) => {
   return (
     <>
@@ -45,7 +46,10 @@ export const RenderMatchStatus: FC<{ status: MatchStatus; date: Date }> = ({
         </p>
       )}
       {status === MatchStatus.Live && (
-        <p className="text-md font-semibold text-green-400">Ahora</p>
+        <p className="text-md font-semibold text-green-400">{elapsed ? `${elapsed}'` : 'Ahora'}</p>
+      )}
+      {status === MatchStatus.HalfTime && (
+        <p className="text-md font-semibold text-yellow-600">Entretiempo</p>
       )}
       {status === MatchStatus.Finished && (
         <p className="text-md font-semibold text-gray-500">Terminado</p>
@@ -54,13 +58,13 @@ export const RenderMatchStatus: FC<{ status: MatchStatus; date: Date }> = ({
   );
 };
 
-export const Match = ({ id, date, homeTeam, awayTeam, status }: any) => {
+export const Match = ({ id, date, homeTeam, awayTeam, status, elapsed }: any) => {
   return (
     <Link
       className="flex flex-col items-center justify-center gap-2"
       href={`/partido/${id}`}
     >
-      <RenderMatchStatus date={date} status={status} />
+      <RenderMatchStatus date={date} status={status} elapsed={elapsed} />
 
       <div key={id} className="flex w-full items-center gap-2">
         <Team {...homeTeam} isHome />

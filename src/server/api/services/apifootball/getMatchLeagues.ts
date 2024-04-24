@@ -13,6 +13,7 @@ const mapResponse = ({
   date: fixture.date,
   venue: fixture.venue.name,
   status: mapMatchStatus(fixture.status.short),
+  elapsed: fixture.status.elapsed,
   homeTeam: {
     id: teams.home.id,
     name: teams.home.name,
@@ -67,6 +68,7 @@ export const getLeagueMatches = async ({
 
   return {
     ...league,
+    response,
     matches: response
       .map(mapResponse)
       .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()),
