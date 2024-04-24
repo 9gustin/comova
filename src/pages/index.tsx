@@ -3,19 +3,33 @@ import Link from "next/link";
 import { es } from "date-fns/locale";
 
 import { api } from "@/utils/api";
-import { format } from "date-fns";
+import {
+  addDays,
+  format,
+  isToday,
+  isTomorrow,
+  isYesterday,
+  subDays,
+} from "date-fns";
 import { League } from "@/components/League";
-import { IconReload } from "@tabler/icons-react";
+import {
+  IconChevronLeft,
+  IconChevronRight,
+  IconReload,
+} from "@tabler/icons-react";
 import { useState } from "react";
 
-export default function Home({ today = format(new Date(), "yyyy-MM-dd") }) {
+const mapDate = (d: Date) => format(d, "yyyy-MM-dd");
+
+export default function Home() {
+  const [date, setDate] = useState(new Date());
   const {
     data: leagues,
     isLoading,
     refetch,
     isRefetching,
   } = api.apiFootball.getMatchesByDates.useQuery({
-    date: today,
+    date: mapDate(date),
   });
   const [showRefresh, setShowRefresh] = useState(true);
 
@@ -26,11 +40,7 @@ export default function Home({ today = format(new Date(), "yyyy-MM-dd") }) {
         setShowRefresh(true);
       }, 10000);
     });
-  }
-
-  if (isLoading) {
-    return null;
-  }
+  };
 
   return (
     <>
@@ -43,7 +53,7 @@ export default function Home({ today = format(new Date(), "yyyy-MM-dd") }) {
         <link rel="icon" href="/comova.png" />
       </Head>
       <div
-        className={`flex flex-1 flex-col items-center gap-6 bg-base-300 p-4 ${isRefetching ? "opacity-50" : ""}`}
+        className="flex flex-1 flex-col items-center gap-6 bg-base-300 p-4"
         style={{
           minHeight: "100vh",
         }}
@@ -56,22 +66,48 @@ export default function Home({ today = format(new Date(), "yyyy-MM-dd") }) {
               <Link
                 target="_blank"
                 href="https://cafecito.app/9gustin"
-                className="m-0 p-0 text-sm underline font-light"
+                className="m-0 p-0 text-sm font-light underline"
               >
                 by @9gustin ;)
               </Link>
             </div>
           </div>
-          <h2 className="flex flex-col items-center">
-            <b>{format(new Date(), "eeee", { locale: es })}</b>
-            {format(new Date(), "d/MM", { locale: es })}
-          </h2>
+          <div className="flex items-center gap-2">
+            <button
+              className="btn btn-circle btn-sm"
+              onClick={() => {
+                setDate(subDays(date, 1));
+              }}
+            >
+              <IconChevronLeft />
+            </button>
+            <span className="flex flex-col items-center">
+              {isToday(date) ? (
+                <b>Hoy</b>
+              ) : isTomorrow(date) ? (
+                <b>Mañana</b>
+              ) : isYesterday(date) ? (
+                <b>Ayer</b>
+              ) : (
+                <>
+                  <b>{format(date, "eeee", { locale: es })}</b>
+                  {format(date, "d/MM", { locale: es })}
+                </>
+              )}
+            </span>
+            <button
+              className="btn btn-circle btn-sm"
+              onClick={() => {
+                setDate(addDays(date, 1));
+              }}
+            >
+              <IconChevronRight />
+            </button>
+          </div>
         </header>
-        {leagues?.length ? (
+        {leagues?.length || isLoading ? (
           <ul className="flex w-full max-w-lg flex-1 flex-col gap-4 ">
-            {leagues.map((league) => (
-              <League key={league.id} {...league} />
-            ))}
+            {leagues?.map((league) => <League key={league.id} {...league} />)}
           </ul>
         ) : (
           <div className="flex flex-1 items-center">
