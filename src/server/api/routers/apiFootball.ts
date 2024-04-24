@@ -6,6 +6,7 @@ import { getLeagueMatches } from "../services/apifootball/getMatchLeagues";
 import { getLeagueStandings } from "../services/apifootball/getLeagueStandings";
 import { getMatchById } from "../services/apifootball/getMatchById";
 import { groupBEvent } from "../services/apifootball/groupBEvent";
+import { isLiveStatus } from "@/types/matchStatus";
 
 export const apiRouterFootball = createTRPCRouter({
   getMatchesByDates: rateLimitProcedure
@@ -20,7 +21,31 @@ export const apiRouterFootball = createTRPCRouter({
         }),
       );
 
-      return leagues?.filter((league) => league.matches.length);
+      return leagues
+        ?.filter((league) => league.matches.length)
+        .sort((a, b) => {
+          const aHasLive = a.matches.some((m) => isLiveStatus(m.status));
+          const bHasLive = b.matches.some((m) => isLiveStatus(m.status));
+
+          if (aHasLive && !bHasLive) {
+            return -1;
+          }
+          if (!aHasLive && bHasLive) {
+            return 1;
+          }
+
+          const aNextMatch = a.matches.find((m) => !isLiveStatus(m.status));
+          const bNextMatch = b.matches.find((m) => !isLiveStatus(m.status));
+
+          if (!aNextMatch || !bNextMatch) {
+            return 0;
+          }
+
+          return (
+            new Date(aNextMatch.date).getTime() -
+            new Date(bNextMatch.date).getTime()
+          );
+        });
     }),
   getLeagueStandings: rateLimitProcedure
     .input(z.object({ leagueId: z.number() }))
@@ -40,7 +65,7 @@ export const apiRouterFootball = createTRPCRouter({
 
       return standings;
     }),
-    getMatchById: rateLimitProcedure
+  getMatchById: rateLimitProcedure
     .input(z.object({ matchId: z.number() }))
     .query(async ({ input }) => {
       const match = await getMatchById({
@@ -49,9 +74,7 @@ export const apiRouterFootball = createTRPCRouter({
 
       return match;
     }),
-    getGroupBLiveEvents: rateLimitProcedure
-    .query(async () => {
-      return groupBEvent()
-    })
-
+  getGroupBLiveEvents: rateLimitProcedure.query(async () => {
+    return groupBEvent();
+  }),
 });

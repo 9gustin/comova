@@ -17,3 +17,6 @@ export const mapMatchStatus = (status: string): MatchStatus => {
       return MatchStatus.Live;
   }
 }
+
+export const isLiveStatus = (s: MatchStatus) => s === MatchStatus.Live || s === MatchStatus.HalfTime;
+export const showStatusFirst = (s: MatchStatus) => isLiveStatus(s) || s === MatchStatus.NotStarted;

@@ -2,7 +2,7 @@ import { DEFAULT_TIMEZONE, type League } from "@/config";
 import { env } from "@/env";
 import { LEAGUE_MATCHES_RESPONSE } from "@/mocks/apiResponse";
 import { type LeagueMatchsResponse } from "@/types/leagueMatches";
-import { mapMatchStatus } from "@/types/matchStatus";
+import { mapMatchStatus, showStatusFirst } from "@/types/matchStatus";
 
 const mapResponse = ({
   fixture,
@@ -30,6 +30,21 @@ const mapResponse = ({
   },
 });
 
+
+const sortAndMap = (response: LeagueMatchsResponse["response"]) => {
+  return response
+    .map(mapResponse)
+    .sort((a, b) => {
+      if (showStatusFirst(a.status) && !showStatusFirst(b.status)) {
+        return -1;
+      }
+      if (!showStatusFirst(a.status) && showStatusFirst(b.status)) {
+        return 1;
+      }
+      return new Date(a.date).getTime() - new Date(b.date).getTime();
+    });
+};
+
 export const getLeagueMatches = async ({
   league,
   date,
@@ -41,11 +56,7 @@ export const getLeagueMatches = async ({
     await new Promise((resolve) => setTimeout(resolve, 2000));
     return {
       ...league,
-      matches: LEAGUE_MATCHES_RESPONSE.response
-        .map(mapResponse)
-        .sort(
-          (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
-        ),
+      matches: sortAndMap(LEAGUE_MATCHES_RESPONSE.response),
     };
   }
 
@@ -69,8 +80,6 @@ export const getLeagueMatches = async ({
   return {
     ...league,
     response,
-    matches: response
-      .map(mapResponse)
-      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()),
+    matches: sortAndMap(response)
   };
 };
