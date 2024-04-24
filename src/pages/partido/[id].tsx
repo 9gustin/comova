@@ -27,7 +27,7 @@ export default function MatchPage() {
       refetch={MatchStatus.Finished !== matchData.status ? refetch : undefined}
     >
       <div className="flex w-full justify-center">
-        <RenderMatchStatus date={matchData.date} status={matchData.status} />
+        <RenderMatchStatus date={matchData.date} status={matchData.status} elapsed={matchData.elapsed} />
       </div>
       <div className="flex w-full gap-4 rounded-lg bg-base-200 px-2 py-4">
         <div className="flex w-1/2 flex-col items-end gap-4">
