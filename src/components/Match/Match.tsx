@@ -7,11 +7,12 @@ export const Team: FC<{
   goals: number;
   logo: string;
   name: string;
+  penalty?: number;
   isHome?: boolean;
   teamCn?: string;
-}> = ({ goals, logo, name, isHome, teamCn }) => (
+}> = ({ goals, penalty, logo, name, isHome, teamCn }) => (
   <>
-    {!isHome && <p className="text-lg">{goals}</p>}
+    {!isHome && <p className="text-lg">{penalty && <span className="text-sm opacity-80">({penalty})</span>}{goals}</p>}
     <div
       className={`flex flex-1 items-center gap-2 ${isHome ? "flex-row-reverse" : "flex-row"}`}
       style={{
@@ -29,7 +30,7 @@ export const Team: FC<{
         {name}
       </p>
     </div>
-    {isHome && <p className="text-lg">{goals}</p>}
+    {isHome && <p className="text-lg">{goals}{penalty && <span className="text-sm opacity-80">({penalty})</span>} </p>}
   </>
 );
 

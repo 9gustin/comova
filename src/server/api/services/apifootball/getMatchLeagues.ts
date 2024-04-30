@@ -8,6 +8,7 @@ const mapResponse = ({
   fixture,
   goals,
   teams,
+  score
 }: LeagueMatchsResponse["response"][0]) => ({
   id: fixture.id,
   date: fixture.date,
@@ -19,6 +20,7 @@ const mapResponse = ({
     name: teams.home.name,
     logo: teams.home.logo,
     goals: goals.home,
+    penalty: score.penalty?.home,
     winner: teams.home.winner,
   },
   awayTeam: {
@@ -26,6 +28,7 @@ const mapResponse = ({
     name: teams.away.name,
     logo: teams.away.logo,
     goals: goals.away,
+    penalty: score.penalty?.away,
     winner: teams.away.winner,
   },
 });
@@ -76,6 +79,8 @@ export const getLeagueMatches = async ({
   }
 
   const { response } = (await apiResponse.json()) as LeagueMatchsResponse;
+
+  console.log(JSON.stringify(response[0], null, 2))
 
   return {
     ...league,

@@ -9,6 +9,8 @@ export const mapMatchStatus = (status: string): MatchStatus => {
   switch (status) {
     case "FT":
       return MatchStatus.Finished;
+    case "PEN": 
+      return MatchStatus.Finished;
     case "NS":
       return MatchStatus.NotStarted;
     case "HT":
