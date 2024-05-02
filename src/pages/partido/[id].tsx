@@ -12,10 +12,21 @@ export default function MatchPage() {
     data: matchData,
     isRefetching,
     refetch,
+    isLoading,
   } = api.apiFootball.getMatchById.useQuery(
     { matchId: params?.id ? Number(params.id) : 0 },
     { enabled: !!params?.id },
   );
+
+  if (isLoading) {
+    return (
+      <Layout logo="" title="Cargando...">
+        <div className="skeleton h-40 w-full"></div>
+        <div className="skeleton h-72 w-full"></div>
+        <div className="skeleton h-52 w-full"></div>
+      </Layout>
+    );
+  }
 
   if (!params?.id || !matchData) return null;
 
