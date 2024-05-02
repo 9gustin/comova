@@ -1,6 +1,7 @@
 import { MatchStatus } from "@/types/matchStatus";
 import { format } from "date-fns";
 import Link from "next/link";
+import posthog from "posthog-js";
 import { type FC } from "react";
 
 export const Team: FC<{
@@ -64,6 +65,7 @@ export const Match = ({ id, date, homeTeam, awayTeam, status, elapsed }: any) =>
     <Link
       className="flex flex-col items-center justify-center gap-2"
       href={`/partido/${id}`}
+      onClick={() => posthog.capture('OPEN_MATCH', {id})}
     >
       <RenderMatchStatus date={date} status={status} elapsed={elapsed} />
 

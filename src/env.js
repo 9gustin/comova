@@ -20,7 +20,8 @@ export const env = createEnv({
    * `NEXT_PUBLIC_`.
    */
   client: {
-    // NEXT_PUBLIC_CLIENTVAR: z.string(),
+    NEXT_PUBLIC_POSTHOG_HOST: z.string(),
+    NEXT_PUBLIC_POSTHOG_KEY: z.string(),
   },
 
   /**
@@ -33,6 +34,8 @@ export const env = createEnv({
     MOCK_APIDATA: process.env.MOCK_APIDATA,
     LOCAL_IP_ADDRESS: process.env.LOCAL_IP_ADDRESS,
     DISABLE_RATELIMIT: process.env.DISABLE_RATELIMIT,
+    NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY,
+    NEXT_PUBLIC_POSTHOG_HOST: process.env.NEXT_PUBLIC_POSTHOG_HOST,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**

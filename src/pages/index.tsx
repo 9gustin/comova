@@ -19,6 +19,7 @@ import {
 } from "@tabler/icons-react";
 import { useState } from "react";
 import { ACTIVE_LEAGUES } from "@/config";
+import posthog from "posthog-js";
 
 const mapDate = (d: Date) => format(d, "yyyy-MM-dd");
 
@@ -36,6 +37,7 @@ export default function Home() {
 
   const handleRefresh = async () => {
     setShowRefresh(false);
+    posthog.capture('REFRESH_HOME')
     await refetch().then(() => {
       setTimeout(() => {
         setShowRefresh(true);
@@ -78,6 +80,7 @@ export default function Home() {
               className="btn btn-circle btn-sm"
               onClick={() => {
                 setDate(subDays(date, 1));
+                posthog.capture('NAVIGATE_DAYS')
               }}
             >
               <IconChevronLeft />

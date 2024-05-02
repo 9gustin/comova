@@ -1,5 +1,6 @@
 import { IconChevronLeft, IconReload } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
+import posthog from "posthog-js";
 import { type ReactNode, type FC, useState } from "react";
 
 export const Layout: FC<{
@@ -15,6 +16,9 @@ export const Layout: FC<{
 
   const handleRefresh = async () => {
     if (!refetch) return;
+
+    posthog.capture('REFRESH_DATA')
+    
     setShowRefresh(false);
     await refetch().then(() => {
       setTimeout(() => {

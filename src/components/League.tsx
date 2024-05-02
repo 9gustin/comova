@@ -1,5 +1,6 @@
 import { Match } from "@/components/Match/Match";
 import Link from "next/link";
+import posthog from "posthog-js";
 import { Fragment } from "react";
 
 export const League = ({ id, logo, name, matches, isLoading }: any) => {
@@ -15,7 +16,7 @@ export const League = ({ id, logo, name, matches, isLoading }: any) => {
           }}
         />
         <h3 className="card-title flex-1 justify-between gap-2 text-lg">
-          <Link href={`/torneo/${id}`}>{name}</Link>
+          <Link href={`/torneo/${id}`} onClick={() => posthog.capture('OPEN_LEAGUE', {id})}>{name}</Link>
         </h3>
       </div>
       <ul className="flex flex-col gap-2">
