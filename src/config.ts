@@ -21,6 +21,13 @@ const CHAMPIONSLEAGUE = {
   logo: "https://media.api-sports.io/football/leagues/2.png",
 };
 
+const EUROPALEAGUE = {
+  id: 3,
+  currentSeason: 2023,
+  name: "UEFA Europa League",
+  logo: "https://media.api-sports.io/football/leagues/3.png",
+};
+
 const LIBERTADORES = {
   id: 13,
   currentSeason: 2024,
@@ -48,4 +55,5 @@ export const ACTIVE_LEAGUES = [
   PREMIERLEAGUE,
   CHAMPIONSLEAGUE,
   COPASUDAMERICANA,
+  EUROPALEAGUE,
 ];
