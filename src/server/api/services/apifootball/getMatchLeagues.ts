@@ -80,8 +80,6 @@ export const getLeagueMatches = async ({
 
   const { response } = (await apiResponse.json()) as LeagueMatchsResponse;
 
-  console.log(JSON.stringify(response[0], null, 2))
-
   return {
     ...league,
     response,
