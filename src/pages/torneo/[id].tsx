@@ -1,3 +1,4 @@
+import { Layout } from "@/components/Layout";
 import { ACTIVE_LEAGUES } from "@/config";
 import { api } from "@/utils/api";
 import { IconChevronLeft } from "@tabler/icons-react";
@@ -14,7 +15,7 @@ export const LeagueTable = ({ table }) => {
         </tr>
       </thead>
       <tbody>
-        {table.map(({id, name, logo, points, goalsDiff, rank}) => (
+        {table.map(({ id, name, logo, points, goalsDiff, rank }) => (
           <tr key={id}>
             <td className="flex h-10 items-center gap-4">
               <img
@@ -40,7 +41,12 @@ export default function LeaguePage() {
   const params = useParams();
   const router = useRouter();
 
-  const { data: tableData } = api.apiFootball.getLeagueStandings.useQuery(
+  const {
+    data: tableData,
+    isLoading,
+    refetch,
+    isRefetching,
+  } = api.apiFootball.getLeagueStandings.useQuery(
     {
       leagueId: params?.id ? Number(params?.id) : 0,
     },
@@ -51,6 +57,19 @@ export default function LeaguePage() {
 
   if (!params?.id) return null;
 
+  if (isLoading) {
+    return (
+      <Layout logo="" title="Cargando...">
+        <div className="rounded-md skeleton h-8 w-full"></div>
+        <div className="rounded-md skeleton h-8 w-full"></div>
+        <div className="rounded-md skeleton h-8 w-full"></div>
+        <div className="rounded-md skeleton h-8 w-full"></div>
+        <div className="rounded-md skeleton h-8 w-full"></div>
+        <div className="rounded-md skeleton h-8 w-full"></div>
+      </Layout>
+    );
+  }
+
   const leagueData = ACTIVE_LEAGUES.find(
     (league) => league.id === Number(params.id),
   );
@@ -58,31 +77,15 @@ export default function LeaguePage() {
   if (!leagueData) return null;
 
   return (
-    <div className="flex flex-col gap-4 p-4">
-      <div className="flex w-full items-center justify-between gap-2">
-        <button
-          className="btn btn-circle btn-sm"
-          onClick={() => {
-            router.push("/");
-          }}
-        >
-          <IconChevronLeft />
-        </button>
-        <div className="flex flex-1 gap-4">
-          <img
-            src={leagueData?.logo}
-            alt={`Logo de la liga ${leagueData.name}`}
-            style={{
-              height: 40,
-              width: "auto",
-            }}
-          />
-          <h1 className="card-title gap-4 text-xl">{leagueData.name}</h1>
-        </div>
-      </div>
+    <Layout
+      logo={leagueData.logo}
+      title={leagueData.name}
+      refetch={refetch}
+      isRefetching={isRefetching}
+    >
       {tableData?.standings?.map((standing) => (
         <LeagueTable key={standing.name} table={standing.standings} />
       ))}
-    </div>
+    </Layout>
   );
 }
