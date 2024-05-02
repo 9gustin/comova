@@ -14,24 +14,19 @@ export const Layout: FC<{
   const [showRefresh, setShowRefresh] = useState(true);
 
   const handleRefresh = async () => {
-    if (!refetch) return
+    if (!refetch) return;
     setShowRefresh(false);
     await refetch().then(() => {
       setTimeout(() => {
         setShowRefresh(true);
       }, 10000);
     });
-  }
+  };
 
   return (
     <div className="flex flex-col gap-4 p-4">
       <div className="flex w-full items-center justify-between gap-2">
-        <button
-          className="btn btn-circle btn-sm"
-          onClick={() => {
-            router.push("/");
-          }}
-        >
+        <button className="btn btn-circle btn-sm" onClick={() => router.back()}>
           <IconChevronLeft />
         </button>
         <div className="flex flex-1 gap-4">
@@ -44,7 +39,9 @@ export const Layout: FC<{
               }}
             />
           )}
-          {typeof title === "string" && <h1 className="card-title gap-4 text-xl">{title}</h1>}
+          {typeof title === "string" && (
+            <h1 className="card-title gap-4 text-xl">{title}</h1>
+          )}
           {typeof title !== "string" && title}
         </div>
       </div>
