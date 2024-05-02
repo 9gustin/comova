@@ -18,6 +18,7 @@ import {
   IconReload,
 } from "@tabler/icons-react";
 import { useState } from "react";
+import { ACTIVE_LEAGUES } from "@/config";
 
 const mapDate = (d: Date) => format(d, "yyyy-MM-dd");
 
@@ -105,11 +106,17 @@ export default function Home() {
             </button>
           </div>
         </header>
-        {leagues?.length || isLoading ? (
+        {isLoading && (
+          <ul className="flex w-full max-w-lg flex-1 flex-col gap-4 ">
+            {ACTIVE_LEAGUES?.map((league) => <League key={league.id} {...league} isLoading/>)}
+          </ul>
+        )}
+        {leagues?.length && (
           <ul className="flex w-full max-w-lg flex-1 flex-col gap-4 ">
             {leagues?.map((league) => <League key={league.id} {...league} />)}
           </ul>
-        ) : (
+        )}
+        {!leagues?.length && !isLoading && (
           <div className="flex flex-1 items-center">
             <p className="text-center text-gray-500">No hay partidos :(</p>
           </div>

@@ -2,7 +2,7 @@ import { Match } from "@/components/Match/Match";
 import Link from "next/link";
 import { Fragment } from "react";
 
-export const League = ({ id, logo, name, matches }: any) => {
+export const League = ({ id, logo, name, matches, isLoading }: any) => {
   return (
     <div key={id} className="card w-full gap-4 bg-base-100 p-4 shadow-xl">
       <div className="flex gap-4">
@@ -27,6 +27,13 @@ export const League = ({ id, logo, name, matches }: any) => {
             {i < matches.length - 1 && <div className="divider m-0" />}
           </Fragment>
         ))}
+        {isLoading && (
+          <>
+            <div className="skeleton w-full h-12"></div>
+            <div className="skeleton w-full h-12"></div>
+            <div className="skeleton w-full h-12"></div>
+          </>
+        )}
       </ul>
     </div>
   );
