@@ -14,6 +14,20 @@ export const COPADELALIGA_ARG = {
   logo: "https://media.api-sports.io/football/leagues/1032.png",
 };
 
+export const LIGAARGENTINA = {
+  id: 128,
+  currentSeason: 2024,
+  name: "Liga Profesional Argentina",
+  logo: "https://media.api-sports.io/football/leagues/128.png",
+}
+
+export const PRIMERABNACIONAL = {
+  id: 129	,
+  currentSeason: 2024,
+  name: "Primera Nacional",
+  logo: "https://media.api-sports.io/football/leagues/129.png",
+}
+
 const CHAMPIONSLEAGUE = {
   id: 2,
   currentSeason: 2023,
@@ -50,7 +64,8 @@ const PREMIERLEAGUE = {
 };
 
 export const ACTIVE_LEAGUES = [
-  COPADELALIGA_ARG,
+  LIGAARGENTINA,
+  PRIMERABNACIONAL,
   LIBERTADORES,
   PREMIERLEAGUE,
   CHAMPIONSLEAGUE,
