@@ -30,14 +30,14 @@ export const PRIMERABNACIONAL = {
 
 const CHAMPIONSLEAGUE = {
   id: 2,
-  currentSeason: 2023,
+  currentSeason: 2024,
   name: "UEFA Champions League",
   logo: "https://media.api-sports.io/football/leagues/2.png",
 };
 
 const EUROPALEAGUE = {
   id: 3,
-  currentSeason: 2023,
+  currentSeason: 2024,
   name: "UEFA Europa League",
   logo: "https://media.api-sports.io/football/leagues/3.png",
 };
@@ -58,7 +58,7 @@ const COPASUDAMERICANA = {
 
 const PREMIERLEAGUE = {
   id: 39,
-  currentSeason: 2023,
+  currentSeason: 2024,
   name: "Premier League",
   logo: "https://media.api-sports.io/football/leagues/39.png",
 };
