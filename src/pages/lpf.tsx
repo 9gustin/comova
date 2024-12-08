@@ -61,7 +61,7 @@ export default function GrupoB() {
             <span>Aca podras ver los resultados en tiempo real</span>
           </div>
         )}
-        {liveEvents?.[0].elapsed && (
+        {liveEvents?.[0]?.elapsed && (
           <div className="flex w-1/4 items-center gap-1 p-1">
             <div className="flex w-full items-center  bg-teal-700 py-1 rounded text-white justify-center">
               {liveEvents[0].elapsed}' aprox
