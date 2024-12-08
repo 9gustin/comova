@@ -12,7 +12,7 @@ const inter = Inter({
   variable: "--font-sans",
 });
 
-if (typeof window !== "undefined") {
+if (typeof window !== "undefined" && env.NEXT_PUBLIC_POSTHOG_KEY) {
   posthog.init(env.NEXT_PUBLIC_POSTHOG_KEY, {
     api_host: env.NEXT_PUBLIC_POSTHOG_HOST || "https://us.i.posthog.com",
     loaded: (posthog) => {

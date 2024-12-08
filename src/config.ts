@@ -14,6 +14,20 @@ export const COPADELALIGA_ARG = {
   logo: "https://media.api-sports.io/football/leagues/1032.png",
 };
 
+export const COPAARGENTINA = {
+  id: 130,
+  currentSeason: 2024,
+  name: "Copa Argentina",
+  logo: "https://media.api-sports.io/football/leagues/130.png",
+};
+
+export const LPF_ARG = {
+  id: 128,
+  currentSeason: 2024,
+  name: "LPF",
+  logo: "https://media.api-sports.io/football/leagues/1032.png",
+};
+
 export const LIGAARGENTINA = {
   id: 128,
   currentSeason: 2024,
@@ -49,7 +63,7 @@ const LIBERTADORES = {
   logo: "https://media.api-sports.io/football/leagues/13.png",
 };
 
-const COPASUDAMERICANA = {
+export const COPASUDAMERICANA = {
   id: 11,
   currentSeason: 2024,
   name: "CONMEBOL Sudamericana",

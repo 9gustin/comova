@@ -7,6 +7,7 @@ import { getLeagueStandings } from "../services/apifootball/getLeagueStandings";
 import { getMatchById } from "../services/apifootball/getMatchById";
 import { groupBEvent } from "../services/apifootball/groupBEvent";
 import { isLiveStatus } from "@/types/matchStatus";
+import { getLPFDefinition } from "../services/apifootball/getLFPDefinition";
 
 export const apiRouterFootball = createTRPCRouter({
   getMatchesByDates: rateLimitProcedure
@@ -76,5 +77,8 @@ export const apiRouterFootball = createTRPCRouter({
     }),
   getGroupBLiveEvents: rateLimitProcedure.query(async () => {
     return groupBEvent();
+  }),
+  getLPFDefinition: rateLimitProcedure.query(async () => {
+    return getLPFDefinition();
   }),
 });

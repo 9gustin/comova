@@ -14,13 +14,13 @@ export const TeamTeam: FC<{
     <>
       {!isHome && <p className={scoreClassName ?? scoreCn}>{goals}</p>}
       <div
-        className={`flex items-center gap-2 ${isHome ? "flex-row-reverse" : "flex-row"}`}
+        className={`flex items-center gap-1 ${isHome ? "flex-row-reverse" : "flex-row"}`}
         style={{
           width: "50%",
         }}
       >
         <div className="avatar">
-          <div className={iconClassName ?? 'w-8'}>
+          <div className={iconClassName ?? 'w-6'}>
             <img src={logo || ""} alt={name} />
           </div>
         </div>
